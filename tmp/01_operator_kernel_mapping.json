@@ -1,0 +1,529 @@
+{
+  "metadata": {
+    "generated_at": "2026-04-08",
+    "description": "FLA算子与kernel映射关系",
+    "total_modules": 33,
+    "total_operators": 75,
+    "total_kernel_files": 100,
+    "total_kernels": 269
+  },
+  "modules": {
+    "abc": {
+      "description": "Attention-based Clustering基于注意力的聚类算子",
+      "operators": ["chunk_abc"],
+      "kernel_files": ["fla/ops/abc/chunk.py"],
+      "kernels": ["chunk_abc_fwd_A_kernel", "chunk_abc_fwd_O_kernel", "chunk_abc_bwd_dA_kernel", "chunk_abc_bwd_dqk_kernel"]
+    },
+    "attn": {
+      "description": "Standard Attention标准注意力算子",
+      "operators": ["naive_parallel_attn", "parallel_attn"],
+      "kernel_files": ["fla/ops/attn/parallel.py", "fla/ops/attn/decoding.py"],
+      "kernels": ["parallel_attn_fwd_kernel", "parallel_attn_bwd_kernel", "fused_sdp_kernel", "parallel_decoding_fwd_kernel", "parallel_decoding_bwd_kernel"]
+    },
+    "backends": {
+      "description": "后端调度系统，无kernel函数",
+      "operators": [],
+      "kernel_files": [],
+      "kernels": []
+    },
+    "based": {
+      "description": "Based线性注意力算子",
+      "operators": ["fused_chunk_based", "parallel_based"],
+      "kernel_files": ["fla/ops/based/parallel.py", "fla/ops/based/fused_chunk.py"],
+      "kernels": ["parallel_based_fwd_kernel", "parallel_based_bwd_kernel", "fused_chunk_based_fwd_kernel", "fused_chunk_based_bwd_kernel"]
+    },
+    "comba": {
+      "description": "Comba组合注意力算子",
+      "operators": ["chunk_comba", "fused_recurrent_comba", "naive_chunk_comba", "naive_recurrent_comba"],
+      "kernel_files": ["fla/ops/comba/wy_fast.py", "fla/ops/comba/utils.py", "fla/ops/comba/fused_recurrent.py"],
+      "kernels": ["chunk_comba_fwd_A_kernel", "chunk_comba_fwd_h_kernel", "chunk_comba_fwd_o_kernel", "chunk_comba_bwd_dA_kernel", "chunk_comba_bwd_dh_kernel", "chunk_comba_bwd_do_kernel", "fused_recurrent_comba_fwd_kernel", "fused_recurrent_comba_bwd_kernel"]
+    },
+    "common": {
+      "description": "公共kernel函数（被多个算子共享）",
+      "operators": [],
+      "kernel_files": [
+        "fla/ops/common/fused_recurrent.py",
+        "fla/ops/common/fused_chunk.py",
+        "fla/ops/common/chunk_scaled_dot_kkt.py",
+        "fla/ops/common/chunk_o.py",
+        "fla/ops/common/chunk_h_split.py",
+        "fla/ops/common/chunk_h_parallel.py",
+        "fla/ops/common/chunk_delta_h.py",
+        "fla/ops/common/chunk_h.py"
+      ],
+      "kernels": [
+        "fused_recurrent_fwd_kernel",
+        "fused_recurrent_bwd_kernel",
+        "fused_chunk_fwd_kernel",
+        "fused_chunk_bwd_kernel",
+        "chunk_scaled_dot_kkt_fwd_kernel",
+        "chunk_fwd_o_kernel",
+        "chunk_bwd_dv_local_kernel",
+        "chunk_bwd_dqkwg_kernel",
+        "chunk_h_split_fwd_kernel",
+        "chunk_h_split_bwd_kernel",
+        "chunk_h_parallel_fwd_kernel",
+        "chunk_h_parallel_bwd_kernel",
+        "chunk_gated_delta_rule_fwd_kernel_h_blockdim64",
+        "chunk_gated_delta_rule_bwd_kernel_dhu",
+        "chunk_fwd_h_kernel",
+        "chunk_bwd_dh_kernel"
+      ]
+    },
+    "cp": {
+      "description": "Context Parallel上下文并行算子",
+      "operators": ["FLACPContext", "all_gather_into_tensor", "all_reduce_sum", "build_cp_context", "conv_cp_send_recv_bwd", "conv_cp_send_recv_fwd", "send_recv_bwd", "send_recv_fwd"],
+      "kernel_files": ["fla/ops/cp/chunk_delta_h.py"],
+      "kernels": ["chunk_gated_delta_rule_fwd_kernel_h_blockdim64_cp", "chunk_gated_delta_rule_bwd_kernel_dhu_cp"]
+    },
+    "delta_rule": {
+      "description": "Delta Rule线性注意力算子，支持chunk和recurrent实现",
+      "operators": ["chunk_delta_rule", "fused_chunk_delta_rule", "fused_recurrent_delta_rule"],
+      "kernel_files": ["fla/ops/delta_rule/parallel.py", "fla/ops/delta_rule/wy_fast.py", "fla/ops/delta_rule/fused_recurrent.py"],
+      "kernels": [
+        "parallel_delta_rule_fwd_kernel",
+        "parallel_delta_rule_bwd_kernel",
+        "chunk_wy_fwd_kernel",
+        "chunk_wy_bwd_kernel",
+        "chunk_recompute_w_u_fwd_kernel",
+        "fused_recurrent_delta_rule_fwd_kernel",
+        "fused_recurrent_delta_rule_bwd_kernel"
+      ]
+    },
+    "deltaformer": {
+      "description": "Deltaformer算子",
+      "operators": ["deltaformer_attn", "naive_deltaformer_attn"],
+      "kernel_files": ["fla/ops/deltaformer/parallel.py"],
+      "kernels": ["parallel_deltaformer_fwd_kernel", "parallel_deltaformer_bwd_kernel"]
+    },
+    "forgetting_attn": {
+      "description": "Forgetting Attention遗忘注意力算子",
+      "operators": ["naive_forgetting_attn", "parallel_forgetting_attn"],
+      "kernel_files": [],
+      "kernels": []
+    },
+    "gated_delta_product": {
+      "description": "Gated Delta Product门控增量乘积算子",
+      "operators": ["chunk_gated_delta_product"],
+      "kernel_files": ["fla/ops/gated_delta_product/chunk_deltaproduct_o.py", "fla/ops/gated_delta_product/chunk_deltaproduct_h.py"],
+      "kernels": ["chunk_deltaproduct_o_fwd_kernel", "chunk_deltaproduct_h_fwd_kernel", "chunk_deltaproduct_bwd_kernel"]
+    },
+    "gated_delta_rule": {
+      "description": "Gated Delta Rule门控增量规则算子",
+      "operators": ["chunk_gated_delta_rule", "chunk_gdn", "fused_recurrent_gated_delta_rule", "fused_recurrent_gdn", "naive_chunk_gated_delta_rule", "naive_recurrent_gated_delta_rule"],
+      "kernel_files": ["fla/ops/gated_delta_rule/wy_fast.py", "fla/ops/gated_delta_rule/gate.py", "fla/ops/gated_delta_rule/fused_recurrent.py", "fla/ops/gated_delta_rule/chunk_fwd.py"],
+      "kernels": [
+        "chunk_gated_delta_rule_wy_fwd_kernel",
+        "chunk_gated_delta_rule_wy_bwd_kernel",
+        "chunk_gated_delta_rule_gate_fwd_kernel",
+        "chunk_gated_delta_rule_gate_bwd_kernel",
+        "fused_recurrent_gated_delta_rule_fwd_kernel",
+        "fused_recurrent_gated_delta_rule_bwd_kernel",
+        "chunk_gated_delta_rule_fwd_kernel"
+      ]
+    },
+    "gated_oja_rule": {
+      "description": "Gated Oja Rule门控Oja规则算子",
+      "operators": ["chunk_gated_oja_rule", "fused_recurrent_gated_oja_rule"],
+      "kernel_files": ["fla/ops/gated_oja_rule/wy_fast.py", "fla/ops/gated_oja_rule/fused_recurrent.py", "fla/ops/gated_oja_rule/chunk_o.py", "fla/ops/gated_oja_rule/chunk_kkt.py", "fla/ops/gated_oja_rule/chunk_h.py"],
+      "kernels": [
+        "chunk_gated_oja_rule_wy_fwd_kernel",
+        "chunk_gated_oja_rule_wy_bwd_kernel",
+        "fused_recurrent_gated_oja_rule_fwd_kernel",
+        "fused_recurrent_gated_oja_rule_bwd_kernel",
+        "chunk_gated_oja_rule_o_fwd_kernel",
+        "chunk_gated_oja_rule_o_bwd_kernel",
+        "chunk_gated_oja_rule_kkt_fwd_kernel",
+        "chunk_gated_oja_rule_kkt_bwd_kernel",
+        "chunk_gated_oja_rule_h_fwd_kernel",
+        "chunk_gated_oja_rule_h_bwd_kernel"
+      ]
+    },
+    "generalized_delta_rule": {
+      "description": "Generalized Delta Rule广义增量规则算子",
+      "operators": ["chunk_dplr_delta_rule", "chunk_iplr_delta_rule", "fused_recurrent_dplr_delta_rule", "fused_recurrent_iplr_delta_rule"],
+      "kernel_files": [
+        "fla/ops/generalized_delta_rule/iplr/wy_fast.py",
+        "fla/ops/generalized_delta_rule/iplr/fused_recurrent.py",
+        "fla/ops/generalized_delta_rule/iplr/chunk.py",
+        "fla/ops/generalized_delta_rule/dplr/wy_fast_fwd.py",
+        "fla/ops/generalized_delta_rule/dplr/wy_fast_bwd.py",
+        "fla/ops/generalized_delta_rule/dplr/fused_recurrent.py",
+        "fla/ops/generalized_delta_rule/dplr/chunk_o_fwd.py",
+        "fla/ops/generalized_delta_rule/dplr/chunk_o_bwd.py",
+        "fla/ops/generalized_delta_rule/dplr/chunk_h_fwd.py",
+        "fla/ops/generalized_delta_rule/dplr/chunk_A_fwd.py",
+        "fla/ops/generalized_delta_rule/dplr/chunk_h_bwd.py",
+        "fla/ops/generalized_delta_rule/dplr/chunk_A_bwd.py"
+      ],
+      "kernels": [
+        "chunk_iplr_delta_rule_wy_fwd_kernel",
+        "chunk_iplr_delta_rule_wy_bwd_kernel",
+        "fused_recurrent_iplr_delta_rule_fwd_kernel",
+        "fused_recurrent_iplr_delta_rule_bwd_kernel",
+        "chunk_iplr_delta_rule_fwd_kernel",
+        "chunk_iplr_delta_rule_bwd_kernel",
+        "chunk_dplr_delta_rule_wy_fwd_kernel",
+        "chunk_dplr_delta_rule_wy_bwd_kernel",
+        "fused_recurrent_dplr_delta_rule_fwd_kernel",
+        "fused_recurrent_dplr_delta_rule_bwd_kernel",
+        "chunk_dplr_delta_rule_o_fwd_kernel",
+        "chunk_dplr_delta_rule_o_bwd_kernel",
+        "chunk_dplr_delta_rule_h_fwd_kernel",
+        "chunk_dplr_delta_rule_A_fwd_kernel",
+        "chunk_dplr_delta_rule_h_bwd_kernel",
+        "chunk_dplr_delta_rule_A_bwd_kernel"
+      ]
+    },
+    "gla": {
+      "description": "Gated Linear Attention门控线性注意力算子",
+      "operators": ["chunk_gla", "fused_chunk_gla", "fused_recurrent_gla"],
+      "kernel_files": ["fla/ops/gla/chunk.py"],
+      "kernels": [
+        "chunk_gla_fwd_A_kernel_intra_sub_inter",
+        "chunk_gla_fwd_A_kernel_intra_sub_intra",
+        "chunk_gla_fwd_A_kernel_inter",
+        "chunk_gla_bwd_A_kernel_intra_sub_inter",
+        "chunk_gla_bwd_A_kernel_intra_sub_intra",
+        "chunk_gla_bwd_A_kernel_inter",
+        "chunk_gla_bwd_A_kernel_intra",
+        "chunk_gla_bwd_dqk_kernel",
+        "chunk_gla_bwd_dv_kernel"
+      ]
+    },
+    "gsa": {
+      "description": "Gated State Attention门控状态注意力算子",
+      "operators": ["chunk_gsa", "fused_recurrent_gsa"],
+      "kernel_files": ["fla/ops/gsa/fused_recurrent.py", "fla/ops/gsa/chunk.py"],
+      "kernels": [
+        "fused_recurrent_gsa_fwd_kernel",
+        "chunk_gsa_fwd_k_kernel",
+        "chunk_gsa_fwd_v_kernel",
+        "chunk_gsa_bwd_dk_kernel",
+        "chunk_gsa_bwd_dv_kernel"
+      ]
+    },
+    "hgrn": {
+      "description": "Hierarchically Gated Recurrent Network分层门控循环网络算子",
+      "operators": ["chunk_hgrn", "fused_recurrent_hgrn"],
+      "kernel_files": ["fla/ops/hgrn/fused_recurrent.py", "fla/ops/hgrn/chunk.py"],
+      "kernels": [
+        "fused_recurrent_hgrn_fwd_kernel",
+        "fused_recurrent_hgrn_bwd_kernel",
+        "chunk_hgrn_fwd_kernel",
+        "chunk_hgrn_bwd_kernel_h",
+        "chunk_hgrn_bwd_kernel_dqk",
+        "chunk_hgrn_bwd_kernel_dv"
+      ]
+    },
+    "kda": {
+      "description": "Kernel Delta Attention算子",
+      "operators": ["chunk_kda", "fused_recurrent_kda"],
+      "kernel_files": ["fla/ops/kda/wy_fast.py", "fla/ops/kda/gate.py", "fla/ops/kda/chunk_intra_token_parallel.py", "fla/ops/kda/fused_recurrent.py", "fla/ops/kda/chunk_intra.py", "fla/ops/kda/chunk_bwd.py"],
+      "kernels": [
+        "chunk_kda_wy_fwd_kernel",
+        "chunk_kda_wy_bwd_kernel",
+        "chunk_kda_gate_fwd_kernel",
+        "chunk_kda_gate_bwd_kernel",
+        "chunk_kda_gate_bwd_kernel_dg",
+        "chunk_kda_intra_token_parallel_fwd_kernel",
+        "fused_recurrent_kda_fwd_kernel",
+        "chunk_kda_intra_fwd_kernel",
+        "chunk_kda_intra_bwd_kernel_h",
+        "chunk_kda_intra_bwd_kernel_dv",
+        "chunk_kda_bwd_dqk_kernel",
+        "chunk_kda_bwd_dv_kernel"
+      ]
+    },
+    "lightning_attn": {
+      "description": "Lightning Attention闪电注意力算子",
+      "operators": ["chunk_lightning_attn", "fused_recurrent_lightning_attn"],
+      "kernel_files": [],
+      "kernels": []
+    },
+    "linear_attn": {
+      "description": "Linear Attention线性注意力算子",
+      "operators": ["chunk_linear_attn", "fused_chunk_linear_attn", "fused_recurrent_linear_attn"],
+      "kernel_files": [],
+      "kernels": []
+    },
+    "log_linear_attn": {
+      "description": "Log Linear Attention对数线性注意力算子",
+      "operators": ["chunk_log_linear_attn"],
+      "kernel_files": ["fla/ops/log_linear_attn/chunk.py"],
+      "kernels": [
+        "chunk_log_linear_attn_fwd_kernel_h",
+        "chunk_log_linear_attn_fwd_kernel_o",
+        "chunk_log_linear_attn_bwd_kernel_dh",
+        "chunk_log_linear_attn_bwd_kernel_dqk",
+        "chunk_log_linear_attn_bwd_kernel_dv",
+        "chunk_log_linear_attn_bwd_kernel_dg",
+        "chunk_log_linear_attn_bwd_kernel_dqk_global",
+        "chunk_log_linear_attn_bwd_kernel_dv_global"
+      ]
+    },
+    "mesa_net": {
+      "description": "MESA Net网络算子",
+      "operators": ["chunk_mesa_net", "mesa_net_decoding_one_step", "naive_mesa_net_decoding_one_step", "naive_mesa_net_exact"],
+      "kernel_files": ["fla/ops/mesa_net/chunk_h_kv_intra_bwd_separate.py", "fla/ops/mesa_net/decoding_one_step.py", "fla/ops/mesa_net/chunk_h_kv_intra_bwd.py", "fla/ops/mesa_net/chunk_h_kk_intra_bwd.py", "fla/ops/mesa_net/chunk_cg_solver_fwd.py", "fla/ops/mesa_net/chunk_h_fwd.py", "fla/ops/mesa_net/chunk_cg_solver_bwd.py"],
+      "kernels": [
+        "chunk_mesa_net_h_kv_intra_bwd_separate_kernel",
+        "chunk_mesa_net_h_kv_intra_bwd_separate_kernel_dk",
+        "mesa_net_decoding_one_step_fwd_kernel",
+        "chunk_mesa_net_h_kv_intra_bwd_kernel",
+        "chunk_mesa_net_h_kk_intra_bwd_kernel",
+        "chunk_mesa_net_cg_solver_fwd_kernel",
+        "chunk_mesa_net_h_fwd_kernel",
+        "chunk_mesa_net_cg_solver_bwd_kernel"
+      ]
+    },
+    "nsa": {
+      "description": "Native Sparse Attention原生稀疏注意力算子",
+      "operators": ["naive_nsa", "parallel_nsa"],
+      "kernel_files": ["fla/ops/nsa/utils.py", "fla/ops/nsa/parallel.py", "fla/ops/nsa/compression.py"],
+      "kernels": [
+        "nsa_mask_kernel",
+        "nsa_select_kernel",
+        "nsa_compress_kernel",
+        "parallel_nsa_fwd_kernel",
+        "parallel_nsa_bwd_kernel",
+        "parallel_nsa_bwd_kernel_dq",
+        "parallel_nsa_bwd_kernel_dkv",
+        "parallel_nsa_bwd_kernel_dkv_compress",
+        "compression_fwd_kernel",
+        "compression_bwd_kernel",
+        "compression_bwd_kernel_decode"
+      ]
+    },
+    "path_attn": {
+      "description": "Path Attention路径注意力算子",
+      "operators": ["naive_path_attn", "parallel_path_attn"],
+      "kernel_files": ["fla/ops/path_attn/transform_q.py", "fla/ops/path_attn/parallel_path_fwd.py", "fla/ops/path_attn/prepare_k_cache.py", "fla/ops/path_attn/parallel_path_bwd_intra.py", "fla/ops/path_attn/parallel_path_bwd_inter_dqh.py", "fla/ops/path_attn/parallel_path_bwd_inter_dkv.py", "fla/ops/path_attn/intra_chunk_preprocess_fwd.py", "fla/ops/path_attn/intra_chunk_preprocess_bwd_prepare.py", "fla/ops/path_attn/intra_chunk_preprocess_bwd.py", "fla/ops/path_attn/cumprod_householder_fwd.py", "fla/ops/path_attn/cumprod_householder_bwd.py"],
+      "kernels": [
+        "transform_q_kernel",
+        "parallel_path_fwd_kernel",
+        "prepare_k_cache_kernel",
+        "parallel_path_bwd_intra_kernel",
+        "parallel_path_bwd_inter_dqh_kernel",
+        "parallel_path_bwd_inter_dkv_kernel",
+        "intra_chunk_preprocess_fwd_kernel",
+        "intra_chunk_preprocess_bwd_prepare_kernel",
+        "intra_chunk_preprocess_bwd_kernel",
+        "cumprod_householder_fwd_kernel",
+        "cumprod_householder_bwd_kernel"
+      ]
+    },
+    "rebased": {
+      "description": "ReBased线性注意力算子",
+      "operators": ["parallel_rebased"],
+      "kernel_files": ["fla/ops/rebased/parallel.py"],
+      "kernels": ["parallel_rebased_fwd_kernel", "parallel_rebased_bwd_kernel_dq", "parallel_rebased_bwd_kernel_dkv", "parallel_rebased_bwd_kernel"]
+    },
+    "retention": {
+      "description": "Retention保留机制算子",
+      "operators": ["chunk_retention", "fused_chunk_retention", "fused_recurrent_retention", "parallel_retention"],
+      "kernel_files": [],
+      "kernels": []
+    },
+    "rwkv4": {
+      "description": "RWKV-4线性注意力算子",
+      "operators": ["fused_recurrent_rwkv4"],
+      "kernel_files": ["fla/ops/rwkv4/fused_recurrent.py"],
+      "kernels": ["fused_recurrent_rwkv4_fwd_kernel", "fused_recurrent_rwkv4_bwd_kernel"]
+    },
+    "rwkv6": {
+      "description": "RWKV-6线性注意力算子",
+      "operators": ["chunk_rwkv6", "fused_recurrent_rwkv6"],
+      "kernel_files": ["fla/ops/rwkv6/fused_recurrent.py", "fla/ops/rwkv6/chunk.py"],
+      "kernels": [
+        "fused_recurrent_rwkv6_fwd_kernel",
+        "fused_recurrent_rwkv6_bwd_kernel",
+        "fused_recurrent_rwkv6_bwd_kernel_w",
+        "fused_recurrent_rwkv6_bwd_kernel_u",
+        "chunk_rwkv6_fwd_kernel_h",
+        "chunk_rwkv6_fwd_kernel_o",
+        "chunk_rwkv6_bwd_kernel_dh",
+        "chunk_rwkv6_bwd_kernel_dqk",
+        "chunk_rwkv6_bwd_kernel_dv",
+        "chunk_rwkv6_bwd_kernel_dw",
+        "chunk_rwkv6_bwd_kernel_du"
+      ]
+    },
+    "rwkv7": {
+      "description": "RWKV-7线性注意力算子",
+      "operators": ["chunk_rwkv7", "fused_mul_recurrent_rwkv7", "fused_recurrent_rwkv7"],
+      "kernel_files": ["fla/ops/rwkv7/gate_output_correction.py", "fla/ops/rwkv7/fused_recurrent.py", "fla/ops/rwkv7/fused_k_update.py", "fla/ops/rwkv7/fused_addcmul.py", "fla/ops/rwkv7/channel_mixing.py"],
+      "kernels": [
+        "gate_output_correction_fwd_kernel",
+        "gate_output_correction_bwd_kernel",
+        "fused_recurrent_rwkv7_fwd_kernel",
+        "k_update_fwd_kernel_short",
+        "k_update_fwd_kernel_long",
+        "k_update_bwd_kernel_short",
+        "k_update_bwd_kernel_long",
+        "fused_addcmul_fwd_kernel",
+        "addcmul_bwd_kernel1",
+        "rwkv_seq_mix_kernel",
+        "rwkv_seq_mix_bwd_kernel",
+        "rwkv_seq_mix_bwd_kernel2"
+      ]
+    },
+    "simple_gla": {
+      "description": "Simple GLA简化门控线性注意力算子",
+      "operators": ["chunk_simple_gla", "fused_chunk_simple_gla", "fused_recurrent_simple_gla", "parallel_simple_gla"],
+      "kernel_files": ["fla/ops/simple_gla/parallel.py"],
+      "kernels": ["parallel_simple_gla_fwd_kernel", "parallel_simple_gla_bwd_kernel_dq", "parallel_simple_gla_bwd_kernel_dkv", "parallel_simple_gla_bwd_kernel"]
+    },
+    "titans": {
+      "description": "Titans线性注意力算子",
+      "operators": ["chunk_titans_linear"],
+      "kernel_files": [],
+      "kernels": []
+    },
+    "ttt": {
+      "description": "Test-Time Training测试时训练算子",
+      "operators": ["chunk_ttt_linear", "fused_chunk_ttt_linear"],
+      "kernel_files": ["fla/ops/ttt/fused_chunk.py", "fla/ops/ttt/chunk.py"],
+      "kernels": [
+        "fused_chunk_ttt_linear_fwd_kernel",
+        "fused_chunk_ttt_linear_bwd_kernel_h",
+        "fused_chunk_ttt_linear_bwd_kernel_dh",
+        "chunk_ttt_linear_fwd_kernel_h",
+        "chunk_ttt_linear_fwd_kernel_o",
+        "chunk_ttt_linear_bwd_kernel_h",
+        "chunk_ttt_linear_bwd_kernel_dv_local",
+        "chunk_ttt_linear_bwd_kernel_norm",
+        "chunk_bwd_kernel_dqke"
+      ]
+    },
+    "utils": {
+      "description": "工具算子（cumsum, softmax, pooling等）",
+      "operators": ["addmm", "chunk_global_cumsum", "chunk_global_cumsum_scalar", "chunk_global_cumsum_vector", "chunk_local_cumsum", "chunk_local_cumsum_scalar", "chunk_local_cumsum_vector", "get_max_num_splits", "logsumexp_fwd", "matmul", "mean_pooling", "pack_sequence", "prepare_chunk_indices", "prepare_chunk_offsets", "prepare_cu_seqlens_from_lens", "prepare_cu_seqlens_from_mask", "prepare_lens", "prepare_lens_from_mask", "prepare_position_ids", "prepare_sequence_ids", "prepare_token_indices", "softmax_bwd", "softmax_fwd", "softplus", "solve_tril", "unpack_sequence"],
+      "kernel_files": ["fla/ops/utils/softplus.py", "fla/ops/utils/solve_tril.py", "fla/ops/utils/softmax.py", "fla/ops/utils/pooling.py", "fla/ops/utils/pack.py", "fla/ops/utils/op.py", "fla/ops/utils/matmul.py", "fla/ops/utils/logsumexp.py", "fla/ops/utils/logcumsumexp.py", "fla/ops/utils/index.py", "fla/ops/utils/cumsum.py"],
+      "kernels": [
+        "softplus_nv",
+        "softplus_triton",
+        "softplus2_nv",
+        "softplus2_triton",
+        "solve_tril_16x16_kernel",
+        "merge_16x16_to_32x32_inverse_kernel",
+        "merge_16x16_to_64x64_inverse_kernel",
+        "softmax_fwd_kernel",
+        "softmax_bwd_kernel",
+        "mean_pooling_fwd_kernel",
+        "mean_pooling_bwd_kernel",
+        "packunpack_sequence_kernel",
+        "exp",
+        "exp2",
+        "log",
+        "log2",
+        "tanh",
+        "gather",
+        "make_tensor_descriptor",
+        "matmul_kernel",
+        "leaky_relu",
+        "sigmoid",
+        "tanh",
+        "relu",
+        "logsumexp_fwd_kernel",
+        "logcumsumexp_fwd_kernel",
+        "prepare_position_ids_kernel",
+        "chunk_local_cumsum_scalar_kernel",
+        "chunk_local_cumsum_vector_kernel",
+        "chunk_global_cumsum_scalar_kernel",
+        "chunk_global_cumsum_vector_kernel"
+      ]
+    }
+  },
+  "operators": [
+    {"name": "chunk_abc", "module": "abc", "source_file": "chunk.py", "kernels": ["chunk_abc_fwd_A_kernel", "chunk_abc_fwd_O_kernel", "chunk_abc_bwd_dA_kernel", "chunk_abc_bwd_dqk_kernel"]},
+    {"name": "naive_parallel_attn", "module": "attn", "source_file": "naive.py", "kernels": []},
+    {"name": "parallel_attn", "module": "attn", "source_file": "parallel.py", "kernels": ["parallel_attn_fwd_kernel", "parallel_attn_bwd_kernel", "fused_sdp_kernel"]},
+    {"name": "fused_chunk_based", "module": "based", "source_file": "fused_chunk.py", "kernels": ["fused_chunk_based_fwd_kernel", "fused_chunk_based_bwd_kernel"]},
+    {"name": "parallel_based", "module": "based", "source_file": "parallel.py", "kernels": ["parallel_based_fwd_kernel", "parallel_based_bwd_kernel"]},
+    {"name": "chunk_comba", "module": "comba", "source_file": "chunk.py", "kernels": ["chunk_comba_fwd_A_kernel", "chunk_comba_fwd_h_kernel", "chunk_comba_fwd_o_kernel", "chunk_comba_bwd_dA_kernel", "chunk_comba_bwd_dh_kernel", "chunk_comba_bwd_do_kernel"]},
+    {"name": "fused_recurrent_comba", "module": "comba", "source_file": "fused_recurrent.py", "kernels": ["fused_recurrent_comba_fwd_kernel", "fused_recurrent_comba_bwd_kernel"]},
+    {"name": "naive_chunk_comba", "module": "comba", "source_file": "naive.py", "kernels": []},
+    {"name": "naive_recurrent_comba", "module": "comba", "source_file": "naive.py", "kernels": []},
+    {"name": "chunk_delta_rule", "module": "delta_rule", "source_file": "chunk.py", "kernels": ["chunk_wy_fwd_kernel", "chunk_wy_bwd_kernel", "chunk_recompute_w_u_fwd_kernel", "chunk_gated_delta_rule_fwd_kernel_h_blockdim64", "chunk_gated_delta_rule_bwd_kernel_dhu", "chunk_fwd_o_kernel", "chunk_bwd_dv_local_kernel", "chunk_bwd_dqkwg_kernel"]},
+    {"name": "fused_chunk_delta_rule", "module": "delta_rule", "source_file": "fused_chunk.py", "kernels": ["fused_chunk_fwd_kernel", "fused_chunk_bwd_kernel"]},
+    {"name": "fused_recurrent_delta_rule", "module": "delta_rule", "source_file": "fused_recurrent.py", "kernels": ["fused_recurrent_delta_rule_fwd_kernel", "fused_recurrent_delta_rule_bwd_kernel"]},
+    {"name": "deltaformer_attn", "module": "deltaformer", "source_file": "parallel.py", "kernels": ["parallel_deltaformer_fwd_kernel", "parallel_deltaformer_bwd_kernel"]},
+    {"name": "naive_deltaformer_attn", "module": "deltaformer", "source_file": "naive.py", "kernels": []},
+    {"name": "naive_forgetting_attn", "module": "forgetting_attn", "source_file": "naive.py", "kernels": []},
+    {"name": "parallel_forgetting_attn", "module": "forgetting_attn", "source_file": "parallel.py", "kernels": []},
+    {"name": "chunk_gated_delta_product", "module": "gated_delta_product", "source_file": "chunk.py", "kernels": ["chunk_deltaproduct_o_fwd_kernel", "chunk_deltaproduct_h_fwd_kernel", "chunk_deltaproduct_bwd_kernel"]},
+    {"name": "chunk_gated_delta_rule", "module": "gated_delta_rule", "source_file": "chunk.py", "kernels": ["chunk_gated_delta_rule_wy_fwd_kernel", "chunk_gated_delta_rule_wy_bwd_kernel", "chunk_gated_delta_rule_gate_fwd_kernel", "chunk_gated_delta_rule_gate_bwd_kernel", "chunk_gated_delta_rule_fwd_kernel"]},
+    {"name": "chunk_gdn", "module": "gated_delta_rule", "source_file": "chunk.py", "kernels": ["chunk_gated_delta_rule_wy_fwd_kernel", "chunk_gated_delta_rule_wy_bwd_kernel", "chunk_gated_delta_rule_gate_fwd_kernel", "chunk_gated_delta_rule_gate_bwd_kernel", "chunk_gated_delta_rule_fwd_kernel"]},
+    {"name": "fused_recurrent_gated_delta_rule", "module": "gated_delta_rule", "source_file": "fused_recurrent.py", "kernels": ["fused_recurrent_gated_delta_rule_fwd_kernel", "fused_recurrent_gated_delta_rule_bwd_kernel"]},
+    {"name": "fused_recurrent_gdn", "module": "gated_delta_rule", "source_file": "fused_recurrent.py", "kernels": ["fused_recurrent_gated_delta_rule_fwd_kernel", "fused_recurrent_gated_delta_rule_bwd_kernel"]},
+    {"name": "naive_chunk_gated_delta_rule", "module": "gated_delta_rule", "source_file": "naive.py", "kernels": []},
+    {"name": "naive_recurrent_gated_delta_rule", "module": "gated_delta_rule", "source_file": "naive.py", "kernels": []},
+    {"name": "chunk_gated_oja_rule", "module": "gated_oja_rule", "source_file": "chunk.py", "kernels": ["chunk_gated_oja_rule_wy_fwd_kernel", "chunk_gated_oja_rule_wy_bwd_kernel", "chunk_gated_oja_rule_o_fwd_kernel", "chunk_gated_oja_rule_o_bwd_kernel", "chunk_gated_oja_rule_kkt_fwd_kernel", "chunk_gated_oja_rule_kkt_bwd_kernel", "chunk_gated_oja_rule_h_fwd_kernel", "chunk_gated_oja_rule_h_bwd_kernel"]},
+    {"name": "fused_recurrent_gated_oja_rule", "module": "gated_oja_rule", "source_file": "fused_recurrent.py", "kernels": ["fused_recurrent_gated_oja_rule_fwd_kernel", "fused_recurrent_gated_oja_rule_bwd_kernel"]},
+    {"name": "chunk_dplr_delta_rule", "module": "generalized_delta_rule", "source_file": "dplr/chunk.py", "kernels": ["chunk_dplr_delta_rule_wy_fwd_kernel", "chunk_dplr_delta_rule_wy_bwd_kernel", "chunk_dplr_delta_rule_o_fwd_kernel", "chunk_dplr_delta_rule_o_bwd_kernel", "chunk_dplr_delta_rule_h_fwd_kernel", "chunk_dplr_delta_rule_A_fwd_kernel", "chunk_dplr_delta_rule_h_bwd_kernel", "chunk_dplr_delta_rule_A_bwd_kernel"]},
+    {"name": "chunk_iplr_delta_rule", "module": "generalized_delta_rule", "source_file": "iplr/chunk.py", "kernels": ["chunk_iplr_delta_rule_wy_fwd_kernel", "chunk_iplr_delta_rule_wy_bwd_kernel", "chunk_iplr_delta_rule_fwd_kernel", "chunk_iplr_delta_rule_bwd_kernel"]},
+    {"name": "fused_recurrent_dplr_delta_rule", "module": "generalized_delta_rule", "source_file": "dplr/fused_recurrent.py", "kernels": ["fused_recurrent_dplr_delta_rule_fwd_kernel", "fused_recurrent_dplr_delta_rule_bwd_kernel"]},
+    {"name": "fused_recurrent_iplr_delta_rule", "module": "generalized_delta_rule", "source_file": "iplr/fused_recurrent.py", "kernels": ["fused_recurrent_iplr_delta_rule_fwd_kernel", "fused_recurrent_iplr_delta_rule_bwd_kernel"]},
+    {"name": "chunk_gla", "module": "gla", "source_file": "chunk.py", "kernels": ["chunk_gla_fwd_A_kernel_intra_sub_inter", "chunk_gla_fwd_A_kernel_intra_sub_intra", "chunk_gla_fwd_A_kernel_inter", "chunk_gla_bwd_A_kernel_intra_sub_inter", "chunk_gla_bwd_A_kernel_intra_sub_intra", "chunk_gla_bwd_A_kernel_inter", "chunk_gla_bwd_A_kernel_intra", "chunk_gla_bwd_dqk_kernel", "chunk_gla_bwd_dv_kernel", "chunk_fwd_h_kernel", "chunk_bwd_dh_kernel"]},
+    {"name": "fused_chunk_gla", "module": "gla", "source_file": "fused_chunk.py", "kernels": ["fused_chunk_fwd_kernel", "fused_chunk_bwd_kernel"]},
+    {"name": "fused_recurrent_gla", "module": "gla", "source_file": "fused_recurrent.py", "kernels": ["fused_recurrent_fwd_kernel", "fused_recurrent_bwd_kernel"]},
+    {"name": "chunk_gsa", "module": "gsa", "source_file": "chunk.py", "kernels": ["chunk_gsa_fwd_k_kernel", "chunk_gsa_fwd_v_kernel", "chunk_gsa_bwd_dk_kernel", "chunk_gsa_bwd_dv_kernel"]},
+    {"name": "fused_recurrent_gsa", "module": "gsa", "source_file": "fused_recurrent.py", "kernels": ["fused_recurrent_gsa_fwd_kernel"]},
+    {"name": "chunk_hgrn", "module": "hgrn", "source_file": "chunk.py", "kernels": ["chunk_hgrn_fwd_kernel", "chunk_hgrn_bwd_kernel_h", "chunk_hgrn_bwd_kernel_dqk", "chunk_hgrn_bwd_kernel_dv"]},
+    {"name": "fused_recurrent_hgrn", "module": "hgrn", "source_file": "fused_recurrent.py", "kernels": ["fused_recurrent_hgrn_fwd_kernel", "fused_recurrent_hgrn_bwd_kernel"]},
+    {"name": "chunk_kda", "module": "kda", "source_file": "chunk.py", "kernels": ["chunk_kda_wy_fwd_kernel", "chunk_kda_wy_bwd_kernel", "chunk_kda_gate_fwd_kernel", "chunk_kda_gate_bwd_kernel", "chunk_kda_gate_bwd_kernel_dg", "chunk_kda_intra_fwd_kernel", "chunk_kda_intra_bwd_kernel_h", "chunk_kda_intra_bwd_kernel_dv", "chunk_kda_bwd_dqk_kernel", "chunk_kda_bwd_dv_kernel"]},
+    {"name": "fused_recurrent_kda", "module": "kda", "source_file": "fused_recurrent.py", "kernels": ["fused_recurrent_kda_fwd_kernel"]},
+    {"name": "chunk_lightning_attn", "module": "lightning_attn", "source_file": "chunk.py", "kernels": []},
+    {"name": "fused_recurrent_lightning_attn", "module": "lightning_attn", "source_file": "fused_recurrent.py", "kernels": []},
+    {"name": "chunk_linear_attn", "module": "linear_attn", "source_file": "chunk.py", "kernels": []},
+    {"name": "fused_chunk_linear_attn", "module": "linear_attn", "source_file": "fused_chunk.py", "kernels": []},
+    {"name": "fused_recurrent_linear_attn", "module": "linear_attn", "source_file": "fused_recurrent.py", "kernels": []},
+    {"name": "chunk_log_linear_attn", "module": "log_linear_attn", "source_file": "chunk.py", "kernels": ["chunk_log_linear_attn_fwd_kernel_h", "chunk_log_linear_attn_fwd_kernel_o", "chunk_log_linear_attn_bwd_kernel_dh", "chunk_log_linear_attn_bwd_kernel_dqk", "chunk_log_linear_attn_bwd_kernel_dv", "chunk_log_linear_attn_bwd_kernel_dg", "chunk_log_linear_attn_bwd_kernel_dqk_global", "chunk_log_linear_attn_bwd_kernel_dv_global"]},
+    {"name": "chunk_mesa_net", "module": "mesa_net", "source_file": "chunk.py", "kernels": ["chunk_mesa_net_h_kv_intra_bwd_separate_kernel", "chunk_mesa_net_h_kv_intra_bwd_separate_kernel_dk", "chunk_mesa_net_h_kv_intra_bwd_kernel", "chunk_mesa_net_h_kk_intra_bwd_kernel", "chunk_mesa_net_cg_solver_fwd_kernel", "chunk_mesa_net_h_fwd_kernel", "chunk_mesa_net_cg_solver_bwd_kernel"]},
+    {"name": "mesa_net_decoding_one_step", "module": "mesa_net", "source_file": "decoding_one_step.py", "kernels": ["mesa_net_decoding_one_step_fwd_kernel"]},
+    {"name": "naive_mesa_net_decoding_one_step", "module": "mesa_net", "source_file": "naive.py", "kernels": []},
+    {"name": "naive_mesa_net_exact", "module": "mesa_net", "source_file": "naive.py", "kernels": []},
+    {"name": "naive_nsa", "module": "nsa", "source_file": "naive.py", "kernels": []},
+    {"name": "parallel_nsa", "module": "nsa", "source_file": "parallel.py", "kernels": ["nsa_mask_kernel", "nsa_select_kernel", "nsa_compress_kernel", "parallel_nsa_fwd_kernel", "parallel_nsa_bwd_kernel", "parallel_nsa_bwd_kernel_dq", "parallel_nsa_bwd_kernel_dkv", "parallel_nsa_bwd_kernel_dkv_compress", "compression_fwd_kernel", "compression_bwd_kernel", "compression_bwd_kernel_decode"]},
+    {"name": "naive_path_attn", "module": "path_attn", "source_file": "naive.py", "kernels": []},
+    {"name": "parallel_path_attn", "module": "path_attn", "source_file": "parallel.py", "kernels": ["transform_q_kernel", "parallel_path_fwd_kernel", "prepare_k_cache_kernel", "parallel_path_bwd_intra_kernel", "parallel_path_bwd_inter_dqh_kernel", "parallel_path_bwd_inter_dkv_kernel", "intra_chunk_preprocess_fwd_kernel", "intra_chunk_preprocess_bwd_prepare_kernel", "intra_chunk_preprocess_bwd_kernel", "cumprod_householder_fwd_kernel", "cumprod_householder_bwd_kernel"]},
+    {"name": "parallel_rebased", "module": "rebased", "source_file": "parallel.py", "kernels": ["parallel_rebased_fwd_kernel", "parallel_rebased_bwd_kernel_dq", "parallel_rebased_bwd_kernel_dkv", "parallel_rebased_bwd_kernel"]},
+    {"name": "chunk_retention", "module": "retention", "source_file": "chunk.py", "kernels": []},
+    {"name": "fused_chunk_retention", "module": "retention", "source_file": "fused_chunk.py", "kernels": []},
+    {"name": "fused_recurrent_retention", "module": "retention", "source_file": "fused_recurrent.py", "kernels": []},
+    {"name": "parallel_retention", "module": "retention", "source_file": "parallel.py", "kernels": []},
+    {"name": "fused_recurrent_rwkv4", "module": "rwkv4", "source_file": "fused_recurrent.py", "kernels": ["fused_recurrent_rwkv4_fwd_kernel", "fused_recurrent_rwkv4_bwd_kernel"]},
+    {"name": "chunk_rwkv6", "module": "rwkv6", "source_file": "chunk.py", "kernels": ["chunk_rwkv6_fwd_kernel_h", "chunk_rwkv6_fwd_kernel_o", "chunk_rwkv6_bwd_kernel_dh", "chunk_rwkv6_bwd_kernel_dqk", "chunk_rwkv6_bwd_kernel_dv", "chunk_rwkv6_bwd_kernel_dw", "chunk_rwkv6_bwd_kernel_du"]},
+    {"name": "fused_recurrent_rwkv6", "module": "rwkv6", "source_file": "fused_recurrent.py", "kernels": ["fused_recurrent_rwkv6_fwd_kernel", "fused_recurrent_rwkv6_bwd_kernel", "fused_recurrent_rwkv6_bwd_kernel_w", "fused_recurrent_rwkv6_bwd_kernel_u"]},
+    {"name": "chunk_rwkv7", "module": "rwkv7", "source_file": "chunk.py", "kernels": []},
+    {"name": "fused_mul_recurrent_rwkv7", "module": "rwkv7", "source_file": "fused_recurrent.py", "kernels": ["fused_recurrent_rwkv7_fwd_kernel"]},
+    {"name": "fused_recurrent_rwkv7", "module": "rwkv7", "source_file": "fused_recurrent.py", "kernels": ["fused_recurrent_rwkv7_fwd_kernel"]},
+    {"name": "chunk_simple_gla", "module": "simple_gla", "source_file": "chunk.py", "kernels": ["chunk_fwd_h_kernel", "chunk_bwd_dh_kernel"]},
+    {"name": "fused_chunk_simple_gla", "module": "simple_gla", "source_file": "fused_chunk.py", "kernels": ["fused_chunk_fwd_kernel", "fused_chunk_bwd_kernel"]},
+    {"name": "fused_recurrent_simple_gla", "module": "simple_gla", "source_file": "fused_recurrent.py", "kernels": ["fused_recurrent_fwd_kernel", "fused_recurrent_bwd_kernel"]},
+    {"name": "parallel_simple_gla", "module": "simple_gla", "source_file": "parallel.py", "kernels": ["parallel_simple_gla_fwd_kernel", "parallel_simple_gla_bwd_kernel_dq", "parallel_simple_gla_bwd_kernel_dkv", "parallel_simple_gla_bwd_kernel"]},
+    {"name": "chunk_titans_linear", "module": "titans", "source_file": "naive.py", "kernels": []},
+    {"name": "chunk_ttt_linear", "module": "ttt", "source_file": "chunk.py", "kernels": ["chunk_ttt_linear_fwd_kernel_h", "chunk_ttt_linear_fwd_kernel_o", "chunk_ttt_linear_bwd_kernel_h", "chunk_ttt_linear_bwd_kernel_dv_local", "chunk_ttt_linear_bwd_kernel_norm", "chunk_bwd_kernel_dqke"]},
+    {"name": "fused_chunk_ttt_linear", "module": "ttt", "source_file": "fused_chunk.py", "kernels": ["fused_chunk_ttt_linear_fwd_kernel", "fused_chunk_ttt_linear_bwd_kernel_h", "fused_chunk_ttt_linear_bwd_kernel_dh"]}
+  ],
+  "kernel_function_index": {
+    "_note": "此索引记录每个kernel函数出现的文件位置，便于后续测试用例映射",
+    "common_kernels": {
+      "description": "以下kernel函数被多个算子共享，定义在common模块中",
+      "kernels": [
+        "chunk_gated_delta_rule_fwd_kernel_h_blockdim64",
+        "chunk_gated_delta_rule_bwd_kernel_dhu",
+        "chunk_fwd_o_kernel",
+        "chunk_bwd_dv_local_kernel",
+        "chunk_bwd_dqkwg_kernel",
+        "chunk_fwd_h_kernel",
+        "chunk_bwd_dh_kernel",
+        "fused_recurrent_fwd_kernel",
+        "fused_recurrent_bwd_kernel",
+        "fused_chunk_fwd_kernel",
+        "fused_chunk_bwd_kernel"
+      ]
+    }
+  }
+}
