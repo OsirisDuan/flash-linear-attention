@@ -20,7 +20,6 @@ dist-packages/*
 exp
 results
 wandb
-*.csv
 *.png
 *.html
 
