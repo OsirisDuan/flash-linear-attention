@@ -1,0 +1,53 @@
+模型名称,模型热度级别,Layer名称,Layer模块,Layer类型,算子名称,算子源码路径,算子函数
+ABC,D,ABCAttention,abc,fla核心算子,abc,fla/ops/abc,chunk_abc
+ABC,D,Attention,attn,标准注意力,,,
+BitNet,B,BitAttention,bitattn,外部库(flash_attn),,,
+Comba,C,Attention,attn,标准注意力,,,
+Comba,C,Comba,comba,fla核心算子,comba,fla/ops/comba,"chunk_comba, fused_recurrent_comba"
+DeltaNet,A,Attention,attn,标准注意力,,,
+DeltaNet,A,DeltaNet,delta_net,fla核心算子,delta_rule,fla/ops/delta_rule,"chunk_delta_rule, fused_recurrent_delta_rule"
+DeltaFormer,C,DeltaFormerAttention,deltaformer,fla核心算子,deltaformer,fla/ops/deltaformer,deltaformer_attn
+ForgettingTransformer,A,ForgettingAttention,forgetting_attn,fla核心算子,attn,fla/ops/attn,attn_decoding_one_step
+ForgettingTransformer,A,ForgettingAttention,forgetting_attn,fla核心算子,forgetting_attn,fla/ops/forgetting_attn,parallel_forgetting_attn
+GatedDeltaNet,S,Attention,attn,标准注意力,,,
+GatedDeltaNet,S,GatedDeltaNet,gated_deltanet,fla核心算子,gated_delta_rule,fla/ops/gated_delta_rule,"chunk_gated_delta_rule, fused_recurrent_gated_delta_rule"
+GatedDeltaProduct,C,Attention,attn,标准注意力,,,
+GatedDeltaProduct,C,GatedDeltaProduct,gated_deltaproduct,fla核心算子,gated_delta_product,fla/ops/gated_delta_product,chunk_gated_delta_product
+GatedDeltaProduct,C,GatedDeltaProduct,gated_deltaproduct,fla核心算子,gated_delta_rule,fla/ops/gated_delta_rule,fused_recurrent_gated_delta_rule
+GLA,A,Attention,attn,标准注意力,,,
+GLA,A,GatedLinearAttention,gla,fla核心算子,gla,fla/ops/gla,"chunk_gla, fused_chunk_gla, fused_recurrent_gla"
+GSA,B,Attention,attn,标准注意力,,,
+GSA,B,GatedSlotAttention,gsa,fla核心算子,gsa,fla/ops/gsa,"chunk_gsa, fused_recurrent_gsa"
+HGRN,A,Attention,attn,标准注意力,,,
+HGRN,A,HGRNAttention,hgrn,fla核心算子,hgrn,fla/ops/hgrn,"chunk_hgrn, fused_recurrent_hgrn"
+HGRN2,B,Attention,attn,标准注意力,,,
+HGRN2,B,HGRN2Attention,hgrn2,fla核心算子,gla,fla/ops/gla,"chunk_gla, fused_chunk_gla, fused_recurrent_gla"
+KDA,S,Attention,attn,标准注意力,,,
+KDA,S,KimiDeltaAttention,kda,fla核心算子,kda,fla/ops/kda,"chunk_kda, fused_recurrent_kda"
+LightNet,B,Attention,attn,标准注意力,,,
+LightNet,B,LightNetAttention,lightnet,fla核心算子,gla,fla/ops/gla,"chunk_gla, fused_recurrent_gla"
+LinearAttention,B,Attention,attn,标准注意力,,,
+LinearAttention,B,LinearAttention,linear_attn,fla核心算子,linear_attn,fla/ops/linear_attn,"chunk_linear_attn, fused_chunk_linear_attn, fused_recurrent_linear_attn"
+LogLinearMamba2,C,LogLinearMamba2,log_linear_mamba2,fla核心算子,log_linear_attn,fla/ops/log_linear_attn,"LogLinearAttentionState, chunk_log_linear_attn"
+Mamba,C,Mamba,mamba,外部库(mamba_ssm),,,
+Mamba2,A,Mamba2,mamba2,外部库(mamba_ssm),,,
+MesaNet,C,Attention,attn,标准注意力,,,
+MesaNet,C,MesaNet,mesa_net,fla核心算子,mesa_net,fla/ops/mesa_net,"chunk_mesa_net, mesa_net_decoding_one_step"
+MLA,S,MultiheadLatentAttention,mla,外部库(flash_attn),,,
+MoM,C,MomAttention,mom,fla核心算子,gated_delta_rule,fla/ops/gated_delta_rule,"chunk_gated_delta_rule, fused_recurrent_gated_delta_rule"
+MoM,C,Attention,attn,标准注意力,,,
+NSA,A,NativeSparseAttention,nsa,fla核心算子,nsa,fla/ops/nsa,parallel_nsa
+PaTHAttention,C,PaTHAttention,path_attn,fla核心算子,attn,fla/ops/attn,attn_decoding_one_step
+PaTHAttention,C,PaTHAttention,path_attn,fla核心算子,path_attn,fla/ops/path_attn,parallel_path_attn
+RetNet,A,Attention,attn,标准注意力,,,
+RetNet,A,MultiScaleRetention,multiscale_retention,fla核心算子,retention,fla/ops/retention,"chunk_retention, fused_chunk_retention, fused_recurrent_retention, parallel_retention"
+Rodimus,C,Attention,attn,标准注意力,,,
+Rodimus,C,RodimusAttention,rodimus,fla核心算子,gla,fla/ops/gla,"chunk_gla, fused_chunk_gla, fused_recurrent_gla"
+Rodimus,C,SlidingWindowSharedKeyAttention,rodimus,fla核心算子,gla,fla/ops/gla,"chunk_gla, fused_chunk_gla, fused_recurrent_gla"
+RWKV6,B,Attention,attn,标准注意力,,,
+RWKV6,B,RWKV6Attention,rwkv6,fla核心算子,rwkv6,fla/ops/rwkv6,"chunk_rwkv6, fused_recurrent_rwkv6"
+RWKV7,C,Attention,attn,标准注意力,,,
+RWKV7,C,RWKV7Attention,rwkv7,fla核心算子,rwkv7,fla/ops/rwkv7,"chunk_rwkv7, fused_mul_recurrent_rwkv7"
+Samba,A,Attention,attn,标准注意力,,,
+Samba,A,Mamba,mamba,外部库(mamba_ssm),,,
+Transformer,D,Attention,attn,标准注意力,,,

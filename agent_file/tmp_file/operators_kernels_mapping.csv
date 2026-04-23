@@ -1,0 +1,313 @@
+算子名称,算子所属模块,算子功能描述,Kernel函数名称,kernel类型,Kernel源码路径,Kernel行号,映射关系类型
+ABC,abc,Attention-based Chunk-wise Linear Attention分块线性注意力,chunk_abc_fwd_kernel_h,cv/cube,fla/ops/abc/chunk.py,18,一对多
+ABC,abc,Attention-based Chunk-wise Linear Attention分块线性注意力,chunk_abc_fwd_kernel_intra_K,cv/cube,fla/ops/abc/chunk.py,82,一对多
+ABC,abc,Attention-based Chunk-wise Linear Attention分块线性注意力,chunk_abc_fwd_kernel_K,cv/cube,fla/ops/abc/chunk.py,132,一对多
+ABC,abc,Attention-based Chunk-wise Linear Attention分块线性注意力,chunk_abc_fwd_kernel_intra_V,cv/cube,fla/ops/abc/chunk.py,190,一对多
+ABC,abc,Attention-based Chunk-wise Linear Attention分块线性注意力,chunk_abc_fwd_kernel_V,cv/cube,fla/ops/abc/chunk.py,248,一对多
+ABC,abc,Attention-based Chunk-wise Linear Attention分块线性注意力,chunk_abc_bwd_kernel_dh,cv/cube,fla/ops/abc/chunk.py,300,一对多
+ABC,abc,Attention-based Chunk-wise Linear Attention分块线性注意力,chunk_abc_bwd_kernel_V,cv/cube,fla/ops/abc/chunk.py,359,一对多
+ABC,abc,Attention-based Chunk-wise Linear Attention分块线性注意力,chunk_abc_bwd_kernel_intra_V,cv/cube,fla/ops/abc/chunk.py,453,一对多
+ABC,abc,Attention-based Chunk-wise Linear Attention分块线性注意力,chunk_abc_bwd_kernel_intra_K,cv/cube,fla/ops/abc/chunk.py,546,一对多
+ABC,abc,Attention-based Chunk-wise Linear Attention分块线性注意力,chunk_abc_bwd_kernel_K,cv/cube,fla/ops/abc/chunk.py,604,一对多
+ABC,abc,Attention-based Chunk-wise Linear Attention分块线性注意力,chunk_abc_bwd_kernel_intra_KV,cv/cube,fla/ops/abc/chunk.py,694,一对多
+ABC,abc,Attention-based Chunk-wise Linear Attention分块线性注意力,chunk_abc_bwd_kernel_rcum_inter,vv,fla/ops/abc/chunk.py,748,一对多
+ABC,abc,Attention-based Chunk-wise Linear Attention分块线性注意力,chunk_abc_bwd_kernel_rcum_intra,cv/cube,fla/ops/abc/chunk.py,784,一对多
+Attn,attn,标准Flash Attention并行和解码模式,naive_attn_decoding_kernel,vv,fla/ops/attn/decoding.py,29,一对多
+Attn,attn,标准Flash Attention并行和解码模式,parallel_attn_fwd_kernel,cv/cube,fla/ops/attn/parallel.py,25,一对多
+Attn,attn,标准Flash Attention并行和解码模式,parallel_attn_bwd_kernel_preprocess,vv,fla/ops/attn/parallel.py,149,一对多
+Attn,attn,标准Flash Attention并行和解码模式,parallel_attn_bwd_kernel_dq,cv/cube,fla/ops/attn/parallel.py,172,一对多
+Attn,attn,标准Flash Attention并行和解码模式,parallel_attn_bwd_kernel_dkv,cv/cube,fla/ops/attn/parallel.py,306,一对多
+Based,based,Based线性注意力使用泰勒展开,fused_chunk_based_fwd_kernel,cv/cube,fla/ops/based/fused_chunk.py,15,一对多
+Based,based,Based线性注意力使用泰勒展开,fused_chunk_based_bwd_kernel,cv/cube,fla/ops/based/fused_chunk.py,113,一对多
+Based,based,Based线性注意力使用泰勒展开,parallel_based_fwd_kernel,cv/cube,fla/ops/based/parallel.py,18,一对多
+Based,based,Based线性注意力使用泰勒展开,_parallel_based_bwd_dq,cv/cube,fla/ops/based/parallel.py,104,一对多
+Based,based,Based线性注意力使用泰勒展开,_parallel_based_bwd_dkv,cv/cube,fla/ops/based/parallel.py,187,一对多
+Based,based,Based线性注意力使用泰勒展开,parallel_based_bwd_kernel,vv,fla/ops/based/parallel.py,268,一对多
+Comba,comba,压缩线性注意力带门控,fused_recurrent_comba_fwd_kernel,vv,fla/ops/comba/fused_recurrent.py,21,一对多
+Comba,comba,压缩线性注意力带门控,chunk_comba_cumsum_scalar_fwd_kernel,vv,fla/ops/comba/utils.py,28,一对多
+Comba,comba,压缩线性注意力带门控,chunk_comba_cumsum_scalar_bwd_kernel,vv,fla/ops/comba/utils.py,107,一对多
+Comba,comba,压缩线性注意力带门控,chunk_scaled_dot_comba_pkt_fwd_kernel,cv/cube,fla/ops/comba/wy_fast.py,31,一对多
+Comba,comba,压缩线性注意力带门控,prepare_wy_repr_bwd_kernel,cv/cube,fla/ops/comba/wy_fast.py,164,一对多
+Comba,comba,压缩线性注意力带门控,recompute_w_u_fwd_kernel,cv/cube,fla/ops/comba/wy_fast.py,300,一对多
+Common,common,分块线性注意力共享kernel(多算子共享),chunk_gated_delta_rule_fwd_kernel_h_blockdim64,cv/cube,fla/ops/common/chunk_delta_h.py,39,多对一
+Common,common,分块线性注意力共享kernel(多算子共享),chunk_gated_delta_rule_bwd_kernel_dhu_blockdim64,cv/cube,fla/ops/common/chunk_delta_h.py,344,多对一
+Common,common,分块线性注意力共享kernel(多算子共享),chunk_fwd_kernel_h,cv/cube,fla/ops/common/chunk_h.py,35,多对一
+Common,common,分块线性注意力共享kernel(多算子共享),chunk_bwd_kernel_dh,cv/cube,fla/ops/common/chunk_h.py,162,多对一
+Common,common,分块线性注意力共享kernel(多算子共享),chunk_fwd_kernel_h_parallel,cv/cube,fla/ops/common/chunk_h_parallel.py,38,多对一
+Common,common,分块线性注意力共享kernel(多算子共享),chunk_fwd_kernel_h_reduction,vv,fla/ops/common/chunk_h_parallel.py,153,多对一
+Common,common,分块线性注意力共享kernel(多算子共享),chunk_bwd_kernel_dh_parallel,cv/cube,fla/ops/common/chunk_h_parallel.py,239,多对一
+Common,common,分块线性注意力共享kernel(多算子共享),chunk_bwd_kernel_dh_reduction,vv,fla/ops/common/chunk_h_parallel.py,343,多对一
+Common,common,分块线性注意力共享kernel(多算子共享),chunk_fwd_kernel_h_split,cv/cube,fla/ops/common/chunk_h_split.py,32,多对一
+Common,common,分块线性注意力共享kernel(多算子共享),chunk_fwd_kernel_h_reduction,vv,fla/ops/common/chunk_h_split.py,152,多对一
+Common,common,分块线性注意力共享kernel(多算子共享),chunk_bwd_kernel_dh_split,cv/cube,fla/ops/common/chunk_h_split.py,239,多对一
+Common,common,分块线性注意力共享kernel(多算子共享),chunk_bwd_kernel_dh_reduction,vv,fla/ops/common/chunk_h_split.py,358,多对一
+Common,common,分块线性注意力共享kernel(多算子共享),chunk_fwd_kernel_o,cv/cube,fla/ops/common/chunk_o.py,34,多对一
+Common,common,分块线性注意力共享kernel(多算子共享),chunk_bwd_kernel_dqkwg,cv/cube,fla/ops/common/chunk_o.py,156,多对一
+Common,common,分块线性注意力共享kernel(多算子共享),chunk_bwd_kernel_dv,cv/cube,fla/ops/common/chunk_o.py,358,多对一
+Common,common,分块线性注意力共享kernel(多算子共享),chunk_bwd_kernel_dv_local,cv/cube,fla/ops/common/chunk_o.py,460,多对一
+Common,common,分块线性注意力共享kernel(多算子共享),chunk_scaled_dot_kkt_fwd_kernel,cv/cube,fla/ops/common/chunk_scaled_dot_kkt.py,31,多对一
+Common,common,分块线性注意力共享kernel(多算子共享),fused_chunk_fwd_kernel,cv/cube,fla/ops/common/fused_chunk.py,44,多对一
+Common,common,分块线性注意力共享kernel(多算子共享),fused_chunk_bwd_kernel,cv/cube,fla/ops/common/fused_chunk.py,178,多对一
+Common,common,分块线性注意力共享kernel(多算子共享),fused_recurrent_fwd_kernel,vv,fla/ops/common/fused_recurrent.py,29,多对一
+Common,common,分块线性注意力共享kernel(多算子共享),fused_recurrent_bwd_kernel,vv,fla/ops/common/fused_recurrent.py,142,多对一
+CP,cp,分布式线性注意力的上下文并行,pre_process_fwd_kernel_merged,cv/cube,fla/ops/cp/chunk_delta_h.py,40,一对多
+CP,cp,分布式线性注意力的上下文并行,merge_fwd_bwd_kernel,cv/cube,fla/ops/cp/chunk_delta_h.py,285,一对多
+CP,cp,分布式线性注意力的上下文并行,pre_process_bwd_kernel_merged,cv/cube,fla/ops/cp/chunk_delta_h.py,440,一对多
+DeltaRule,delta_rule,Delta Rule线性注意力,fused_recurrent_delta_rule_fwd_kernel,vv,fla/ops/delta_rule/fused_recurrent.py,21,一对多
+DeltaRule,delta_rule,Delta Rule线性注意力,fused_recurrent_delta_rule_bwd_kernel,vv,fla/ops/delta_rule/fused_recurrent.py,108,一对多
+DeltaRule,delta_rule,Delta Rule线性注意力,chunk_transform_qk_fwd_kernel,cv/cube,fla/ops/delta_rule/parallel.py,27,一对多
+DeltaRule,delta_rule,Delta Rule线性注意力,save_intra_chunk_attn,vv,fla/ops/delta_rule/parallel.py,135,一对多
+DeltaRule,delta_rule,Delta Rule线性注意力,parallel_delta_rule_fwd_kernel,cv/cube,fla/ops/delta_rule/parallel.py,152,一对多
+DeltaRule,delta_rule,Delta Rule线性注意力,recompute_w_u_fwd_kernel,cv/cube,fla/ops/delta_rule/wy_fast.py,32,一对多
+DeltaRule,delta_rule,Delta Rule线性注意力,prepare_wy_repr_bwd_kernel,cv/cube,fla/ops/delta_rule/wy_fast.py,94,一对多
+Deltaformer,deltaformer,Deltaformer并行线性注意力,parallel_deltaformer_fwd_kernel,cv/cube,fla/ops/deltaformer/parallel.py,135,一对多
+Deltaformer,deltaformer,Deltaformer并行线性注意力,parallel_deltaformer_bwd_kernel_u,cv/cube,fla/ops/deltaformer/parallel.py,276,一对多
+Deltaformer,deltaformer,Deltaformer并行线性注意力,parallel_deltaformer_bwd_kernel_row_sum,cv/cube,fla/ops/deltaformer/parallel.py,363,一对多
+Deltaformer,deltaformer,Deltaformer并行线性注意力,parallel_deltaformer_bwd_kernel_qk,cv/cube,fla/ops/deltaformer/parallel.py,458,一对多
+GatedDeltaProduct,gated_delta_product,Gated Delta Product线性注意力,chunk_gated_delta_product_fwd_kernel_h_blockdim64,cv/cube,fla/ops/gated_delta_product/chunk_deltaproduct_h.py,37,一对多
+GatedDeltaProduct,gated_delta_product,Gated Delta Product线性注意力,chunk_gated_delta_product_bwd_kernel_dhu_blockdim64,cv/cube,fla/ops/gated_delta_product/chunk_deltaproduct_h.py,216,一对多
+GatedDeltaProduct,gated_delta_product,Gated Delta Product线性注意力,chunk_fwd_kernel_o,cv/cube,fla/ops/gated_delta_product/chunk_deltaproduct_o.py,35,一对多
+GatedDeltaRule,gated_delta_rule,Gated Delta Rule线性注意力,chunk_gated_delta_rule_fwd_kkt_solve_kernel,cv/cube,fla/ops/gated_delta_rule/chunk_fwd.py,36,一对多
+GatedDeltaRule,gated_delta_rule,Gated Delta Rule线性注意力,fused_recurrent_gated_delta_rule_fwd_kernel,vv,fla/ops/gated_delta_rule/fused_recurrent.py,24,一对多
+GatedDeltaRule,gated_delta_rule,Gated Delta Rule线性注意力,gdn_gate_chunk_cumsum_scalar_kernel,vv,fla/ops/gated_delta_rule/gate.py,60,一对一
+GatedDeltaRule,gated_delta_rule,Gated Delta Rule线性注意力,gdn_gate_bwd_kernel,vv,fla/ops/gated_delta_rule/gate.py,116,一对一
+GatedDeltaRule,gated_delta_rule,Gated Delta Rule线性注意力,gdn_gate_fwd_kernel,vv,fla/ops/gated_delta_rule/gate.py,235,一对一
+GatedDeltaRule,gated_delta_rule,Gated Delta Rule线性注意力,safe_dot,cv/cube,fla/ops/gated_delta_rule/wy_fast.py,27,一对一
+GatedDeltaRule,gated_delta_rule,Gated Delta Rule线性注意力,safe_dot,cv/cube,fla/ops/gated_delta_rule/wy_fast.py,27,一对一
+GatedDeltaRule,gated_delta_rule,Gated Delta Rule线性注意力,recompute_w_u_fwd_kernel,cv/cube,fla/ops/gated_delta_rule/wy_fast.py,56,一对多
+GatedDeltaRule,gated_delta_rule,Gated Delta Rule线性注意力,prepare_wy_repr_bwd_kernel,cv/cube,fla/ops/gated_delta_rule/wy_fast.py,132,一对多
+GatedOjaRule,gated_oja_rule,Gated Oja Rule线性注意力,chunk_oja_fwd_kernel_h_blockdim64,cv/cube,fla/ops/gated_oja_rule/chunk_h.py,37,一对多
+GatedOjaRule,gated_oja_rule,Gated Oja Rule线性注意力,chunk_oja_bwd_kernel_dhu_blockdim64,cv/cube,fla/ops/gated_oja_rule/chunk_h.py,264,一对多
+GatedOjaRule,gated_oja_rule,Gated Oja Rule线性注意力,chunk_gsa_bwd_k_kernel_dqkvg,cv/cube,fla/ops/gated_oja_rule/chunk_h.py,527,一对多
+GatedOjaRule,gated_oja_rule,Gated Oja Rule线性注意力,chunk_oja_bwd_kernel_dvwg_h,cv/cube,fla/ops/gated_oja_rule/chunk_h.py,663,一对多
+GatedOjaRule,gated_oja_rule,Gated Oja Rule线性注意力,chunk_scaled_dot_kkt_fwd_kernel,cv/cube,fla/ops/gated_oja_rule/chunk_kkt.py,29,一对多
+GatedOjaRule,gated_oja_rule,Gated Oja Rule线性注意力,chunk_scaled_dot_kkt_fwd_kernel_intra_sub_inter,cv/cube,fla/ops/gated_oja_rule/chunk_kkt.py,90,一对多
+GatedOjaRule,gated_oja_rule,Gated Oja Rule线性注意力,chunk_scaled_dot_kkt_fwd_kernel_intra_sub_intra,vv,fla/ops/gated_oja_rule/chunk_kkt.py,166,一对多
+GatedOjaRule,gated_oja_rule,Gated Oja Rule线性注意力,chunk_scaled_dot_kkt_bwd_kernel_gk,cv/cube,fla/ops/gated_oja_rule/chunk_kkt.py,230,一对多
+GatedOjaRule,gated_oja_rule,Gated Oja Rule线性注意力,chunk_oja_fwd_inter,cv/cube,fla/ops/gated_oja_rule/chunk_o.py,33,一对多
+GatedOjaRule,gated_oja_rule,Gated Oja Rule线性注意力,chunk_oja_fwd_intra,cv/cube,fla/ops/gated_oja_rule/chunk_o.py,107,一对多
+GatedOjaRule,gated_oja_rule,Gated Oja Rule线性注意力,chunk_oja_bwd_kernel_dA,cv/cube,fla/ops/gated_oja_rule/chunk_o.py,262,一对多
+GatedOjaRule,gated_oja_rule,Gated Oja Rule线性注意力,chunk_oja_bwd_kernel_dqk,cv/cube,fla/ops/gated_oja_rule/chunk_o.py,404,一对多
+GatedOjaRule,gated_oja_rule,Gated Oja Rule线性注意力,chunk_oja_bwd_kernel_dv_o,cv/cube,fla/ops/gated_oja_rule/chunk_o.py,542,一对多
+GatedOjaRule,gated_oja_rule,Gated Oja Rule线性注意力,fused_recurrent_oja_fwd_kernel,vv,fla/ops/gated_oja_rule/fused_recurrent.py,22,一对多
+GatedOjaRule,gated_oja_rule,Gated Oja Rule线性注意力,recompute_w_u_fwd_kernel,cv/cube,fla/ops/gated_oja_rule/wy_fast.py,29,一对多
+GatedOjaRule,gated_oja_rule,Gated Oja Rule线性注意力,prepare_wy_repr_bwd_kernel,cv/cube,fla/ops/gated_oja_rule/wy_fast.py,108,一对多
+GLA,gla,Gated Linear Attention门控线性注意力,chunk_gla_fwd_A_kernel_intra_sub_inter,cv/cube,fla/ops/gla/chunk.py,35,一对多
+GLA,gla,Gated Linear Attention门控线性注意力,chunk_gla_fwd_A_kernel_intra_sub_intra,vv,fla/ops/gla/chunk.py,109,一对多
+GLA,gla,Gated Linear Attention门控线性注意力,chunk_gla_fwd_A_kernel_intra_sub_intra_split,vv,fla/ops/gla/chunk.py,183,一对多
+GLA,gla,Gated Linear Attention门控线性注意力,chunk_gla_fwd_A_kernel_intra_sub_intra_merge,vv,fla/ops/gla/chunk.py,262,一对多
+GLA,gla,Gated Linear Attention门控线性注意力,chunk_gla_fwd_kernel_o,cv/cube,fla/ops/gla/chunk.py,312,一对多
+GLA,gla,Gated Linear Attention门控线性注意力,chunk_gla_bwd_kernel_intra,cv/cube,fla/ops/gla/chunk.py,398,一对多
+GLA,gla,Gated Linear Attention门控线性注意力,chunk_gla_bwd_kernel_dA,cv/cube,fla/ops/gla/chunk.py,534,一对多
+GLA,gla,Gated Linear Attention门控线性注意力,chunk_gla_bwd_kernel_dv,cv/cube,fla/ops/gla/chunk.py,587,一对多
+GLA,gla,Gated Linear Attention门控线性注意力,chunk_gla_bwd_kernel_inter,cv/cube,fla/ops/gla/chunk.py,664,一对多
+GSA,gsa,Gated State Space Attention门控状态空间注意力,chunk_gsa_fwd_k_kernel_inter,cv/cube,fla/ops/gsa/chunk.py,38,一对多
+GSA,gsa,Gated State Space Attention门控状态空间注意力,chunk_gsa_fwd_k_kernel_intra,cv/cube,fla/ops/gsa/chunk.py,112,一对多
+GSA,gsa,Gated State Space Attention门控状态空间注意力,chunk_gsa_bwd_k_kernel_dA,cv/cube,fla/ops/gsa/chunk.py,200,一对多
+GSA,gsa,Gated State Space Attention门控状态空间注意力,chunk_gsa_bwd_k_kernel_dqkvg,cv/cube,fla/ops/gsa/chunk.py,301,一对多
+GSA,gsa,Gated State Space Attention门控状态空间注意力,chunk_gsa_bwd_k_kernel_intra_dvg,cv/cube,fla/ops/gsa/chunk.py,427,一对多
+GSA,gsa,Gated State Space Attention门控状态空间注意力,fused_recurrent_gsa_inference_kernel,vv,fla/ops/gsa/fused_recurrent.py,17,一对多
+HGRN,hgrn,Hierarchically Gated Recurrent Network分层门控递归网络,chunk_hgrn_fwd_kernel_h,vv,fla/ops/hgrn/chunk.py,52,一对多
+HGRN,hgrn,Hierarchically Gated Recurrent Network分层门控递归网络,chunk_hgrn_fwd_kernel_o,vv,fla/ops/hgrn/chunk.py,94,一对多
+HGRN,hgrn,Hierarchically Gated Recurrent Network分层门控递归网络,chunk_hgrn_bwd_kernel_h,vv,fla/ops/hgrn/chunk.py,132,一对多
+HGRN,hgrn,Hierarchically Gated Recurrent Network分层门控递归网络,chunk_hgrn_bwd_kernel_o,vv,fla/ops/hgrn/chunk.py,178,一对多
+HGRN,hgrn,Hierarchically Gated Recurrent Network分层门控递归网络,fused_recurrent_hgrn_fwd_kernel,vv,fla/ops/hgrn/fused_recurrent.py,30,一对多
+HGRN,hgrn,Hierarchically Gated Recurrent Network分层门控递归网络,fused_recurrent_hgrn_bwd_kernel,vv,fla/ops/hgrn/fused_recurrent.py,92,一对多
+KDA,kda,Kernelized Delta Attention核化Delta注意力,chunk_kda_bwd_kernel_dAv,cv/cube,fla/ops/kda/chunk_bwd.py,47,一对多
+KDA,kda,Kernelized Delta Attention核化Delta注意力,chunk_kda_bwd_kernel_wy_dqkg_fused,cv/cube,fla/ops/kda/chunk_bwd.py,128,一对多
+KDA,kda,Kernelized Delta Attention核化Delta注意力,chunk_kda_fwd_kernel_inter_solve_fused,cv/cube,fla/ops/kda/chunk_intra.py,40,一对多
+KDA,kda,Kernelized Delta Attention核化Delta注意力,chunk_kda_bwd_kernel_intra,cv/cube,fla/ops/kda/chunk_intra.py,364,一对多
+KDA,kda,Kernelized Delta Attention核化Delta注意力,chunk_kda_fwd_kernel_intra_sub_chunk,cv/cube,fla/ops/kda/chunk_intra.py,640,一对多
+KDA,kda,Kernelized Delta Attention核化Delta注意力,chunk_kda_fwd_kernel_intra_token_parallel,vv,fla/ops/kda/chunk_intra_token_parallel.py,30,一对多
+KDA,kda,Kernelized Delta Attention核化Delta注意力,fused_recurrent_kda_fwd_kernel,vv,fla/ops/kda/fused_recurrent.py,30,一对多
+KDA,kda,Kernelized Delta Attention核化Delta注意力,kda_gate_fwd_kernel,vv,fla/ops/kda/gate.py,86,一对多
+KDA,kda,Kernelized Delta Attention核化Delta注意力,kda_gate_bwd_kernel,vv,fla/ops/kda/gate.py,142,一对多
+KDA,kda,Kernelized Delta Attention核化Delta注意力,kda_gate_chunk_cumsum_vector_kernel,vv,fla/ops/kda/gate.py,361,一对多
+KDA,kda,Kernelized Delta Attention核化Delta注意力,recompute_w_u_fwd_kda_kernel,cv/cube,fla/ops/kda/wy_fast.py,31,一对多
+KDA,kda,Kernelized Delta Attention核化Delta注意力,prepare_wy_repr_bwd_kda_kernel,cv/cube,fla/ops/kda/wy_fast.py,118,一对多
+LogLinearAttn,log_linear_attn,Log线性注意力分块实现,chunkwise_fwd_kernel,cv/cube,fla/ops/log_linear_attn/chunk.py,41,一对多
+LogLinearAttn,log_linear_attn,Log线性注意力分块实现,copy_input_kernel,vv,fla/ops/log_linear_attn/chunk.py,677,一对多
+LogLinearAttn,log_linear_attn,Log线性注意力分块实现,copy_last_chunk_kernel,vv,fla/ops/log_linear_attn/chunk.py,828,一对多
+LogLinearAttn,log_linear_attn,Log线性注意力分块实现,chunkwise_bwd_kernel_dhg,cv/cube,fla/ops/log_linear_attn/chunk.py,930,一对多
+LogLinearAttn,log_linear_attn,Log线性注意力分块实现,chunkwise_bwd_kernel_hdqgl,cv/cube,fla/ops/log_linear_attn/chunk.py,1047,一对多
+LogLinearAttn,log_linear_attn,Log线性注意力分块实现,chunkwise_bwd_kernel_dkg,cv/cube,fla/ops/log_linear_attn/chunk.py,1195,一对多
+LogLinearAttn,log_linear_attn,Log线性注意力分块实现,chunkwise_bwd_kernel_dv,cv/cube,fla/ops/log_linear_attn/chunk.py,1285,一对多
+LogLinearAttn,log_linear_attn,Log线性注意力分块实现,chunkwise_bwd_kernel_diag,cv/cube,fla/ops/log_linear_attn/chunk.py,1351,一对多
+MesaNet,mesa_net,Mesa Network注意力带CG求解器,chunk_update_once,cv/cube,fla/ops/mesa_net/chunk_cg_solver_bwd.py,16,一对多
+MesaNet,mesa_net,Mesa Network注意力带CG求解器,chunk_fwd_mesa_cg_dim64_kernel,vv,fla/ops/mesa_net/chunk_cg_solver_bwd.py,36,一对多
+MesaNet,mesa_net,Mesa Network注意力带CG求解器,chunk_update_once,cv/cube,fla/ops/mesa_net/chunk_cg_solver_fwd.py,16,一对多
+MesaNet,mesa_net,Mesa Network注意力带CG求解器,chunk_fwd_mesa_cg_dim64_kernel,vv,fla/ops/mesa_net/chunk_cg_solver_fwd.py,36,一对多
+MesaNet,mesa_net,Mesa Network注意力带CG求解器,chunk_mesa_net_fwd_kernel_h,cv/cube,fla/ops/mesa_net/chunk_h_fwd.py,31,一对多
+MesaNet,mesa_net,Mesa Network注意力带CG求解器,chunk_mesa_net_h_kk_bwd_intra_kernel,cv/cube,fla/ops/mesa_net/chunk_h_kk_intra_bwd.py,19,一对多
+MesaNet,mesa_net,Mesa Network注意力带CG求解器,chunk_mesa_net_h_kv_bwd_intra_kernel,cv/cube,fla/ops/mesa_net/chunk_h_kv_intra_bwd.py,32,一对多
+MesaNet,mesa_net,Mesa Network注意力带CG求解器,chunk_mesa_net_h_kv_bwd_intra_kernel_dkv,cv/cube,fla/ops/mesa_net/chunk_h_kv_intra_bwd_separate.py,31,一对多
+MesaNet,mesa_net,Mesa Network注意力带CG求解器,chunk_mesa_net_h_kv_bwd_intra_kernel_dq,cv/cube,fla/ops/mesa_net/chunk_h_kv_intra_bwd_separate.py,150,一对多
+MesaNet,mesa_net,Mesa Network注意力带CG求解器,mesa_net_decoding_one_step_kernel,vv,fla/ops/mesa_net/decoding_one_step.py,16,一对多
+NSA,nsa,Native Sparse Attention原生稀疏注意力,parallel_nsa_compression_fwd_kernel,cv/cube,fla/ops/nsa/compression.py,29,一对多
+NSA,nsa,Native Sparse Attention原生稀疏注意力,parallel_nsa_compression_bwd_kernel_dq,cv/cube,fla/ops/nsa/compression.py,132,一对多
+NSA,nsa,Native Sparse Attention原生稀疏注意力,parallel_nsa_compression_bwd_kernel_dkv,cv/cube,fla/ops/nsa/compression.py,236,一对多
+NSA,nsa,Native Sparse Attention原生稀疏注意力,parallel_nsa_kernel_topk,cv/cube,fla/ops/nsa/parallel.py,43,一对多
+NSA,nsa,Native Sparse Attention原生稀疏注意力,parallel_nsa_fwd_kernel,cv/cube,fla/ops/nsa/parallel.py,181,一对多
+NSA,nsa,Native Sparse Attention原生稀疏注意力,parallel_nsa_kernel_mask,vv,fla/ops/nsa/parallel.py,271,一对多
+NSA,nsa,Native Sparse Attention原生稀疏注意力,parallel_nsa_bwd_kernel_dq,cv/cube,fla/ops/nsa/parallel.py,308,一对多
+NSA,nsa,Native Sparse Attention原生稀疏注意力,parallel_nsa_bwd_kernel_dkv,cv/cube,fla/ops/nsa/parallel.py,417,一对多
+NSA,nsa,Native Sparse Attention原生稀疏注意力,_compare_and_swap,vv,fla/ops/nsa/utils.py,20,一对多
+NSA,nsa,Native Sparse Attention原生稀疏注意力,_bitonic_merge,vv,fla/ops/nsa/utils.py,55,一对多
+NSA,nsa,Native Sparse Attention原生稀疏注意力,argsort,vv,fla/ops/nsa/utils.py,81,一对多
+PathAttn,path_attn,Path Attention带Householder变换,chunk_cumprod_householder_bwd_kernel,cv/cube,fla/ops/path_attn/cumprod_householder_bwd.py,19,一对多
+PathAttn,path_attn,Path Attention带Householder变换,chunk_cumprod_householder_fwd_kernel,cv/cube,fla/ops/path_attn/cumprod_householder_fwd.py,19,一对多
+PathAttn,path_attn,Path Attention带Householder变换,intra_chunk_preprocess_bwd_kernel,cv/cube,fla/ops/path_attn/intra_chunk_preprocess_bwd.py,20,一对多
+PathAttn,path_attn,Path Attention带Householder变换,chunk_transform_qk_bwd_kernel_prepare,cv/cube,fla/ops/path_attn/intra_chunk_preprocess_bwd_prepare.py,19,一对多
+PathAttn,path_attn,Path Attention带Householder变换,intra_chunk_preprocess_fwd_kernel,cv/cube,fla/ops/path_attn/intra_chunk_preprocess_fwd.py,19,一对多
+PathAttn,path_attn,Path Attention带Householder变换,parallel_path_bwd_dkv_kernel,cv/cube,fla/ops/path_attn/parallel_path_bwd_inter_dkv.py,19,一对多
+PathAttn,path_attn,Path Attention带Householder变换,parallel_path_bwd_dq_kernel,cv/cube,fla/ops/path_attn/parallel_path_bwd_inter_dqh.py,21,一对多
+PathAttn,path_attn,Path Attention带Householder变换,parallel_path_bwd_intra_chunk_kernel,cv/cube,fla/ops/path_attn/parallel_path_bwd_intra.py,19,一对多
+PathAttn,path_attn,Path Attention带Householder变换,parallel_path_fwd_kernel,cv/cube,fla/ops/path_attn/parallel_path_fwd.py,19,一对多
+PathAttn,path_attn,Path Attention带Householder变换,parallel_path_fwd_kernel_prepare_k_cache,cv/cube,fla/ops/path_attn/prepare_k_cache.py,18,一对多
+PathAttn,path_attn,Path Attention带Householder变换,transform_q_fwd_kernel,cv/cube,fla/ops/path_attn/transform_q.py,18,一对多
+Rebased,rebased,Rebased线性注意力带可学习核,parallel_rebased_fwd_kernel,cv/cube,fla/ops/rebased/parallel.py,18,一对多
+Rebased,rebased,Rebased线性注意力带可学习核,_parallel_rebased_bwd_dq,cv/cube,fla/ops/rebased/parallel.py,103,一对多
+Rebased,rebased,Rebased线性注意力带可学习核,_parallel_rebased_bwd_dkv,cv/cube,fla/ops/rebased/parallel.py,187,一对多
+Rebased,rebased,Rebased线性注意力带可学习核,parallel_rebased_bwd_kernel,vv,fla/ops/rebased/parallel.py,273,一对多
+RWKV4,rwkv4,RWKV-4注意力机制,fused_recurrent_rwkv4_forward_kernel,vv,fla/ops/rwkv4/fused_recurrent.py,28,一对多
+RWKV4,rwkv4,RWKV-4注意力机制,fused_recurrent_rwkv4_backward_kernel,vv,fla/ops/rwkv4/fused_recurrent.py,179,一对多
+RWKV6,rwkv6,RWKV-6注意力机制,fused_recurrent_rwkv6_fwd_kernel,vv,fla/ops/rwkv6/fused_recurrent.py,31,一对多
+RWKV6,rwkv6,RWKV-6注意力机制,fused_recurrent_rwkv6_bwd_kernel_dq,vv,fla/ops/rwkv6/fused_recurrent.py,118,一对多
+RWKV6,rwkv6,RWKV-6注意力机制,fused_recurrent_rwkv6_bwd_kernel_dkv,vv,fla/ops/rwkv6/fused_recurrent.py,208,一对多
+RWKV6,rwkv6,RWKV-6注意力机制,fused_recurrent_rwkv6_bwd_kernel_dw,cv/cube,fla/ops/rwkv6/fused_recurrent.py,306,一对多
+RWKV6,rwkv6,RWKV-6注意力机制分块实现,chunk_rwkv6_fwd_cumsum_kernel,cv/cube,fla/ops/rwkv6/chunk.py,45,一对多
+RWKV6,rwkv6,RWKV-6注意力机制分块实现,chunk_rwkv6_fwd_A_kernel_intra_sub_inter,cv/cube,fla/ops/rwkv6/chunk.py,126,一对多
+RWKV6,rwkv6,RWKV-6注意力机制分块实现,chunk_rwkv6_fwd_A_kernel_intra_sub_intra,vv,fla/ops/rwkv6/chunk.py,202,一对多
+RWKV6,rwkv6,RWKV-6注意力机制分块实现,chunk_rwkv6_fwd_A_kernel_intra_sub_intra_split,vv,fla/ops/rwkv6/chunk.py,277,一对多
+RWKV6,rwkv6,RWKV-6注意力机制分块实现,chunk_rwkv6_fwd_A_kernel_intra_sub_intra_merge,vv,fla/ops/rwkv6/chunk.py,358,一对多
+RWKV6,rwkv6,RWKV-6注意力机制分块实现,chunk_rwkv6_bwd_kernel_dh,cv/cube,fla/ops/rwkv6/chunk.py,411,一对多
+RWKV6,rwkv6,RWKV-6注意力机制分块实现,chunk_rwkv6_bwd_kernel_intra,cv/cube,fla/ops/rwkv6/chunk.py,492,一对多
+RWKV6,rwkv6,RWKV-6注意力机制分块实现,chunk_rwkv6_bwd_kernel_inter,cv/cube,fla/ops/rwkv6/chunk.py,633,一对多
+RWKV7,rwkv7,RWKV-7注意力机制,rwkv_seq_mix_kernel,vv,fla/ops/rwkv7/channel_mixing.py,38,一对一
+RWKV7,rwkv7,RWKV-7注意力机制,rwkv_channel_mixing_pow_and_relu,vv,fla/ops/rwkv7/channel_mixing.py,83,一对一
+RWKV7,rwkv7,RWKV-7注意力机制,relu_square_bwd_kernel,vv,fla/ops/rwkv7/channel_mixing.py,173,一对一
+RWKV7,rwkv7,RWKV-7注意力机制,rwkv_mix_bwd_kenel,vv,fla/ops/rwkv7/channel_mixing.py,205,一对一
+RWKV7,rwkv7,RWKV-7注意力机制,fused_addcmul_fwd_kernel,vv,fla/ops/rwkv7/fused_addcmul.py,53,一对一
+RWKV7,rwkv7,RWKV-7注意力机制,addcmul_bwd_kernel1,vv,fla/ops/rwkv7/fused_addcmul.py,113,一对一
+RWKV7,rwkv7,RWKV-7注意力机制,k_update_fwd_kernel_short,vv,fla/ops/rwkv7/fused_k_update.py,32,一对一
+RWKV7,rwkv7,RWKV-7注意力机制,k_update_fwd_kernel_long,vv,fla/ops/rwkv7/fused_k_update.py,75,一对一
+RWKV7,rwkv7,RWKV-7注意力机制,k_update_bwd_kernel_short,vv,fla/ops/rwkv7/fused_k_update.py,122,一对一
+RWKV7,rwkv7,RWKV-7注意力机制,k_update_bwd_kernel_long,vv,fla/ops/rwkv7/fused_k_update.py,174,一对一
+RWKV7,rwkv7,RWKV-7注意力机制,fused_recurrent_rwkv7_fwd_kernel,vv,fla/ops/rwkv7/fused_recurrent.py,35,一对多
+RWKV7,rwkv7,RWKV-7注意力机制,gate_output_correction_fwd_kernel,vv,fla/ops/rwkv7/gate_output_correction.py,73,一对一
+RWKV7,rwkv7,RWKV-7注意力机制,gate_output_correction_bwd_kernel,vv,fla/ops/rwkv7/gate_output_correction.py,125,一对一
+SimpleGLA,simple_gla,Simple Gated Linear Attention简化门控线性注意力,parallel_simple_gla_fwd_kernel,cv/cube,fla/ops/simple_gla/parallel.py,47,一对多
+SimpleGLA,simple_gla,Simple Gated Linear Attention简化门控线性注意力,parallel_simple_gla_bwd_kernel_dq,cv/cube,fla/ops/simple_gla/parallel.py,166,一对多
+SimpleGLA,simple_gla,Simple Gated Linear Attention简化门控线性注意力,parallel_simple_gla_bwd_kernel_dkv,cv/cube,fla/ops/simple_gla/parallel.py,258,一对多
+SimpleGLA,simple_gla,Simple Gated Linear Attention简化门控线性注意力,parallel_simple_gla_bwd_kernel,vv,fla/ops/simple_gla/parallel.py,382,一对多
+TTT,ttt,Test-Time Training线性注意力,chunk_ttt_linear_fwd_kernel_h,cv/cube,fla/ops/ttt/chunk.py,34,一对多
+TTT,ttt,Test-Time Training线性注意力,chunk_ttt_linear_fwd_kernel_o,cv/cube,fla/ops/ttt/chunk.py,139,一对多
+TTT,ttt,Test-Time Training线性注意力,chunk_ttt_linear_bwd_kernel_h,cv/cube,fla/ops/ttt/chunk.py,232,一对多
+TTT,ttt,Test-Time Training线性注意力,chunk_ttt_linear_bwd_kernel_dv_local,cv/cube,fla/ops/ttt/chunk.py,334,一对多
+TTT,ttt,Test-Time Training线性注意力,chunk_ttt_linear_bwd_kernel_norm,cv/cube,fla/ops/ttt/chunk.py,409,一对多
+TTT,ttt,Test-Time Training线性注意力,chunk_bwd_kernel_dqke,cv/cube,fla/ops/ttt/chunk.py,567,一对多
+TTT,ttt,Test-Time Training线性注意力,fused_chunk_ttt_linear_fwd_kernel,cv/cube,fla/ops/ttt/fused_chunk.py,35,一对多
+TTT,ttt,Test-Time Training线性注意力,fused_chunk_ttt_linear_bwd_kernel_h,cv/cube,fla/ops/ttt/fused_chunk.py,158,一对多
+TTT,ttt,Test-Time Training线性注意力,fused_chunk_ttt_linear_bwd_kernel_dh,cv/cube,fla/ops/ttt/fused_chunk.py,278,一对多
+DPLR,generalized_delta_rule,Generalized Delta Rule (DPLR变体),chunk_dplr_bwd_kernel_intra,vv,fla/ops/generalized_delta_rule/dplr/chunk_A_bwd.py,32,一对多
+DPLR,generalized_delta_rule,Generalized Delta Rule (DPLR变体),chunk_dplr_bwd_kernel_intra_tensorcore,cv/cube,fla/ops/generalized_delta_rule/dplr/chunk_A_bwd.py,237,一对多
+DPLR,generalized_delta_rule,Generalized Delta Rule (DPLR变体),chunk_dplr_bwd_dgk_kernel,cv/cube,fla/ops/generalized_delta_rule/dplr/chunk_A_bwd.py,407,一对多
+DPLR,generalized_delta_rule,Generalized Delta Rule (DPLR变体),chunk_dplr_fwd_A_kernel_intra_sub_intra,vv,fla/ops/generalized_delta_rule/dplr/chunk_A_fwd.py,32,一对多
+DPLR,generalized_delta_rule,Generalized Delta Rule (DPLR变体),chunk_dplr_fwd_A_kernel_intra_tensorcore,cv/cube,fla/ops/generalized_delta_rule/dplr/chunk_A_fwd.py,159,一对多
+DPLR,generalized_delta_rule,Generalized Delta Rule (DPLR变体),chunk_dplr_bwd_kernel_dhu,cv/cube,fla/ops/generalized_delta_rule/dplr/chunk_h_bwd.py,34,一对多
+DPLR,generalized_delta_rule,Generalized Delta Rule (DPLR变体),chunk_dplr_fwd_kernel_h,cv/cube,fla/ops/generalized_delta_rule/dplr/chunk_h_fwd.py,34,一对多
+DPLR,generalized_delta_rule,Generalized Delta Rule (DPLR变体),chunk_dplr_bwd_kernel_dAu,cv/cube,fla/ops/generalized_delta_rule/dplr/chunk_o_bwd.py,34,一对多
+DPLR,generalized_delta_rule,Generalized Delta Rule (DPLR变体),chunk_dplr_bwd_o_kernel,cv/cube,fla/ops/generalized_delta_rule/dplr/chunk_o_bwd.py,107,一对多
+DPLR,generalized_delta_rule,Generalized Delta Rule (DPLR变体),chunk_dplr_bwd_kernel_dv,cv/cube,fla/ops/generalized_delta_rule/dplr/chunk_o_bwd.py,237,一对多
+DPLR,generalized_delta_rule,Generalized Delta Rule (DPLR变体),chunk_dplr_fwd_kernel_o,cv/cube,fla/ops/generalized_delta_rule/dplr/chunk_o_fwd.py,35,一对多
+DPLR,generalized_delta_rule,Generalized Delta Rule (DPLR变体),fused_recurrent_dplr_delta_rule_fwd_kernel,vv,fla/ops/generalized_delta_rule/dplr/fused_recurrent.py,32,一对多
+DPLR,generalized_delta_rule,Generalized Delta Rule (DPLR变体),prepare_wy_repr_bwd_kernel,cv/cube,fla/ops/generalized_delta_rule/dplr/wy_fast_bwd.py,32,一对多
+DPLR,generalized_delta_rule,Generalized Delta Rule (DPLR变体),prepare_wy_repr_fwd_kernel_chunk32,vv,fla/ops/generalized_delta_rule/dplr/wy_fast_fwd.py,29,一对多
+DPLR,generalized_delta_rule,Generalized Delta Rule (DPLR变体),prepare_wy_repr_fwd_kernel_chunk64,cv/cube,fla/ops/generalized_delta_rule/dplr/wy_fast_fwd.py,75,一对多
+DPLR,generalized_delta_rule,Generalized Delta Rule (DPLR变体),wu_fwd_kernel,cv/cube,fla/ops/generalized_delta_rule/dplr/wy_fast_fwd.py,155,一对多
+IPLR,generalized_delta_rule,Generalized Delta Rule (IPLR变体),chunk_generalized_iplr_delta_rule_fwd_kernel_h,cv/cube,fla/ops/generalized_delta_rule/iplr/chunk.py,42,一对多
+IPLR,generalized_delta_rule,Generalized Delta Rule (IPLR变体),chunk_generalized_iplr_delta_rule_fwd_kernel_o,cv/cube,fla/ops/generalized_delta_rule/iplr/chunk.py,127,一对多
+IPLR,generalized_delta_rule,Generalized Delta Rule (IPLR变体),fused_recurrent_fwd_kernel,vv,fla/ops/generalized_delta_rule/iplr/fused_recurrent.py,30,一对多
+IPLR,generalized_delta_rule,Generalized Delta Rule (IPLR变体),fused_recurrent_bwd_kernel,vv,fla/ops/generalized_delta_rule/iplr/fused_recurrent.py,121,一对多
+IPLR,generalized_delta_rule,Generalized Delta Rule (IPLR变体),prepare_wy_repr_fwd_kernel_chunk32,cv/cube,fla/ops/generalized_delta_rule/iplr/wy_fast.py,29,一对多
+IPLR,generalized_delta_rule,Generalized Delta Rule (IPLR变体),prepare_wy_repr_fwd_kernel_chunk64,cv/cube,fla/ops/generalized_delta_rule/iplr/wy_fast.py,84,一对多
+IPLR,generalized_delta_rule,Generalized Delta Rule (IPLR变体),wu_fwd_kernel,cv/cube,fla/ops/generalized_delta_rule/iplr/wy_fast.py,165,一对多
+cumsum,utils,分块累加和工具函数,chunk_local_cumsum_scalar_kernel,vv,fla/ops/utils/cumsum.py,30,一对一
+cumsum,utils,分块累加和工具函数,chunk_local_cumsum_vector_kernel,vv,fla/ops/utils/cumsum.py,85,一对一
+cumsum,utils,分块累加和工具函数,chunk_global_cumsum_scalar_kernel,vv,fla/ops/utils/cumsum.py,143,一对一
+cumsum,utils,分块累加和工具函数,chunk_global_cumsum_vector_kernel,vv,fla/ops/utils/cumsum.py,203,一对一
+index,utils,位置ID准备工具函数,prepare_position_ids_kernel,vv,fla/ops/utils/index.py,24,一对一
+logcumsumexp,utils,对数累加指数工具函数,logcumsumexp_fwd_kernel,cv/cube,fla/ops/utils/logcumsumexp.py,24,一对一
+logsumexp,utils,对数求和指数工具函数,logsumexp_fwd_kernel,vv,fla/ops/utils/logsumexp.py,27,一对一
+matmul,utils,矩阵乘法工具函数,matmul_kernel,cv/cube,fla/ops/utils/matmul.py,52,一对一
+matmul,utils,激活函数工具,leaky_relu,vv,fla/ops/utils/matmul.py,157,一对一
+matmul,utils,激活函数工具,sigmoid,vv,fla/ops/utils/matmul.py,162,一对一
+matmul,utils,激活函数工具,tanh,vv,fla/ops/utils/matmul.py,168,一对一
+matmul,utils,激活函数工具,relu,vv,fla/ops/utils/matmul.py,175,一对一
+op,utils,基础数学运算工具(快速实现),exp,vv,fla/ops/utils/op.py,17,一对一
+op,utils,基础数学运算工具(快速实现),exp2,vv,fla/ops/utils/op.py,19,一对一
+op,utils,基础数学运算工具(快速实现),log,vv,fla/ops/utils/op.py,21,一对一
+op,utils,基础数学运算工具(快速实现),log2,vv,fla/ops/utils/op.py,23,一对一
+op,utils,基础数学运算工具(快速实现),tanh,vv,fla/ops/utils/op.py,25,一对一
+op,utils,基础数学运算工具(标准实现),exp,vv,fla/ops/utils/op.py,17,一对一
+op,utils,基础数学运算工具(标准实现),exp2,vv,fla/ops/utils/op.py,19,一对一
+op,utils,基础数学运算工具(标准实现),log,vv,fla/ops/utils/op.py,21,一对一
+op,utils,基础数学运算工具(标准实现),log2,vv,fla/ops/utils/op.py,23,一对一
+op,utils,基础数学运算工具(标准实现),tanh,vv,fla/ops/utils/op.py,25,一对一
+op,utils,张量操作工具,gather,vv,fla/ops/utils/op.py,41,一对一
+op,utils,张量描述符工具,make_tensor_descriptor,vv,fla/ops/utils/op.py,65,一对一
+pack,utils,序列打包解包工具,packunpack_sequence_kernel,vv,fla/ops/utils/pack.py,27,一对一
+pooling,utils,平均池化工具,mean_pooling_fwd_kernel,vv,fla/ops/utils/pooling.py,28,一对一
+pooling,utils,平均池化工具,mean_pooling_bwd_kernel,vv,fla/ops/utils/pooling.py,75,一对一
+softmax,utils,Softmax工具,softmax_fwd_kernel,vv,fla/ops/utils/softmax.py,26,一对一
+softmax,utils,Softmax工具,softmax_bwd_kernel,vv,fla/ops/utils/softmax.py,53,一对一
+softplus,utils,Softplus工具,softplus_nv,vv,fla/ops/utils/softplus.py,68,一对一
+softplus,utils,Softplus工具,softplus_triton,vv,fla/ops/utils/softplus.py,84,一对一
+softplus,utils,Softplus2工具,softplus2_nv,vv,fla/ops/utils/softplus.py,89,一对一
+softplus,utils,Softplus2工具,softplus2_triton,vv,fla/ops/utils/softplus.py,105,一对一
+solve_tril,utils,下三角矩阵逆求解工具,solve_tril_16x16_kernel,vv,fla/ops/utils/solve_tril.py,36,一对一
+solve_tril,utils,下三角矩阵逆求解工具,merge_16x16_to_32x32_inverse_kernel,cv/cube,fla/ops/utils/solve_tril.py,104,一对一
+solve_tril,utils,下三角矩阵逆求解工具,merge_16x16_to_64x64_inverse_kernel,cv/cube,fla/ops/utils/solve_tril.py,193,一对一
+sigmoid,activations,Sigmoid激活函数,sigmoid_fwd_kernel,vv,fla/modules/activations.py,85,一对多
+sigmoid,activations,Sigmoid激活函数,sigmoid_bwd_kernel,vv,fla/modules/activations.py,115,一对多
+logsigmoid,activations,LogSigmoid激活函数,logsigmoid_fwd_kernel,vv,fla/modules/activations.py,195,一对多
+logsigmoid,activations,LogSigmoid激活函数,logsigmoid_bwd_kernel,vv,fla/modules/activations.py,230,一对多
+swish,activations,Swish/SiLU激活函数,swish_fwd_kernel,vv,fla/modules/activations.py,324,一对多
+swish,activations,Swish/SiLU激活函数,swish_bwd_kernel,vv,fla/modules/activations.py,355,一对多
+swiglu,activations,SwiGLU激活函数,swiglu_fwd_kernel,vv,fla/modules/activations.py,552,一对多
+swiglu,activations,SwiGLU激活函数,swiglu_fwdbwd_kernel,vv,fla/modules/activations.py,589,一对多
+causal_conv1d,conv,因果一维卷积,causal_conv1d_fwd_kernel,vv,fla/modules/conv/triton/kernels.py,35,一对多
+causal_conv1d,conv,因果一维卷积,causal_conv1d_bwd_kernel,vv,fla/modules/conv/triton/kernels.py,152,一对多
+causal_conv1d,conv,因果一维卷积,causal_conv1d_update_kernel,vv,fla/modules/conv/triton/kernels.py,325,一对多
+causal_conv1d,conv,因果一维卷积,compute_dh0_kernel,vv,fla/modules/conv/triton/kernels.py,410,一对多
+causal_conv1d,conv,因果一维卷积,causal_conv1d_states_fwd_kernel,vv,fla/modules/conv/triton/kernels.py,487,一对多
+bitlinear,fused_bitlinear,融合量化LayerNorm,layer_norm_fwd_kernel_quant,vv,fla/modules/fused_bitlinear.py,72,一对多
+bitlinear,fused_bitlinear,融合量化LayerNorm,layer_norm_bwd_kernel,vv,fla/modules/fused_bitlinear.py,207,一对多
+cross_entropy,fused_cross_entropy,融合交叉熵损失,cross_entropy_fwd_kernel,vv,fla/modules/fused_cross_entropy.py,30,一对多
+cross_entropy,fused_cross_entropy,融合交叉熵损失,cross_entropy_bwd_kernel,vv,fla/modules/fused_cross_entropy.py,106,一对多
+kl_div,fused_kl_div,融合KL散度损失,kl_div_kernel,vv,fla/modules/fused_kl_div.py,25,一对多
+kl_div,fused_kl_div,融合KL散度损失,elementwise_mul_kernel,vv,fla/modules/fused_kl_div.py,90,一对多
+linear_cross_entropy,fused_linear_cross_entropy,融合线性交叉熵损失,logsumexp_fwd_kernel,vv,fla/modules/fused_linear_cross_entropy.py,42,一对多
+linear_cross_entropy,fused_linear_cross_entropy,融合线性交叉熵损失,cross_entropy_kernel,vv,fla/modules/fused_linear_cross_entropy.py,94,一对多
+linear_cross_entropy,fused_linear_cross_entropy,融合线性交叉熵损失,elementwise_mul_kernel,vv,fla/modules/fused_linear_cross_entropy.py,242,一对多
+norm_gate,fused_norm_gate,融合门控LayerNorm,layer_norm_gated_fwd_kernel,vv,fla/modules/fused_norm_gate.py,34,一对多
+norm_gate,fused_norm_gate,融合门控LayerNorm,layer_norm_gated_fwd_kernel1,vv,fla/modules/fused_norm_gate.py,120,一对多
+norm_gate,fused_norm_gate,融合门控LayerNorm,layer_norm_gated_bwd_kernel,vv,fla/modules/fused_norm_gate.py,201,一对多
+norm_gate,fused_norm_gate,融合门控LayerNorm,layer_norm_gated_bwd_kernel1,vv,fla/modules/fused_norm_gate.py,329,一对多
+grpo,grpo,GRPO损失函数,grpo_fwd_kernel,vv,fla/modules/grpo.py,79,一对多
+grpo,grpo,GRPO损失函数,grpo_bwd_kernel,vv,fla/modules/grpo.py,155,一对多
+l2norm,l2norm,L2归一化,l2norm_fwd_kernel1,vv,fla/modules/l2norm.py,24,一对多
+l2norm,l2norm,L2归一化,l2norm_bwd_kernel1,vv,fla/modules/l2norm.py,52,一对多
+l2norm,l2norm,L2归一化,l2norm_fwd_kernel,vv,fla/modules/l2norm.py,81,一对多
+l2norm,l2norm,L2归一化,l2norm_bwd_kernel,vv,fla/modules/l2norm.py,111,一对多
+layernorm,layernorm,LayerNorm/RMSNorm,layer_norm_fwd_kernel,vv,fla/modules/layernorm.py,193,一对多
+layernorm,layernorm,LayerNorm/RMSNorm,layer_norm_fwd_kernel1,vv,fla/modules/layernorm.py,267,一对多
+layernorm,layernorm,LayerNorm/RMSNorm,layer_norm_bwd_kernel,vv,fla/modules/layernorm.py,340,一对多
+layernorm,layernorm,LayerNorm/RMSNorm,layer_norm_bwd_kernel1,vv,fla/modules/layernorm.py,457,一对多
+layernorm_gated,layernorm_gated,门控LayerNorm,layer_norm_fwd_kernel,vv,fla/modules/layernorm_gated.py,54,一对多
+layernorm_gated,layernorm_gated,门控LayerNorm,layer_norm_bwd_kernel,vv,fla/modules/layernorm_gated.py,186,一对多
+rotary,rotary,旋转位置编码,rotary_embedding_kernel,vv,fla/modules/rotary.py,46,一对多
+token_shift,token_shift,Token移位,token_shift_fwd_kernel_short,vv,fla/modules/token_shift.py,67,一对多
+token_shift,token_shift,Token移位,token_shift_fwd_kernel_long,vv,fla/modules/token_shift.py,159,一对多
+token_shift,token_shift,Token移位,token_shift_bwd_kernel_short,vv,fla/modules/token_shift.py,233,一对多
+token_shift,token_shift,Token移位,token_shift_bwd_kernel_long,vv,fla/modules/token_shift.py,311,一对多
