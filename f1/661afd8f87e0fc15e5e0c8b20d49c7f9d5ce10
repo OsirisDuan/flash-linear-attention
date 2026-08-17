@@ -1,0 +1,16 @@
+fla/ops/utils/backends/triton_ascend/__init__.py
+  h_adf730b7d1ac47 12-13,28-37
+fla/ops/utils/backends/triton_ascend/solve_tril.py
+  h_adf730b7d1ac47 20-22,32,34,36,39,41,52-56,61,67-68,71-73,83,85,87,90,92,102-106,108,124-125,127,129-134,136-138,148,150,152,155,157,162,168-181,187-203,207-220,226-243,245-276,278-292,294-314,324-339,353,356-365
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "f1661afd8f87e0fc15e5e0c8b20d49c7f9d5ce10",
+  "prompts": {},
+  "humans": {
+    "h_adf730b7d1ac47": {
+      "author": "OsirisDuan <hw7osiris@outlook.com>"
+    }
+  }
+}
