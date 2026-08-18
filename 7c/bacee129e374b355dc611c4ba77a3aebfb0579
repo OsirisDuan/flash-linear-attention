@@ -1,0 +1,37 @@
+fla/ops/common/backends/triton_ascend/chunk_scaled_dot_kkt.py
+  s_0211c46a678f4a::t_ad9de34597ed50 76-77,87,89-91,93-97,99-100,104-106,110-111,116-119
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "7cbacee129e374b355dc611c4ba77a3aebfb0579",
+  "prompts": {},
+  "humans": {
+    "h_adf730b7d1ac47": {
+      "author": "OsirisDuan <hw7osiris@outlook.com>"
+    }
+  },
+  "sessions": {
+    "s_0211c46a678f4a": {
+      "agent_id": {
+        "tool": "trae",
+        "id": "6a6327b7a304bbb0b452cf29",
+        "model": "glm-5.2"
+      },
+      "human_author": "OsirisDuan <hw7osiris@outlook.com>",
+      "custom_attributes": {
+        "session_id": "6a6327b7a304bbb0b452cf29",
+        "operation_id": "6a842ad3ae00b4541f48383d",
+        "edit_kind": "file_edit",
+        "external_session_id": "6a6327b7a304bbb0b452cf29",
+        "tool_type": "builtin",
+        "tool_use_id": "6a842ad3ae00b4541f48383d",
+        "runtime_client": "trae-tob-git-ai",
+        "source_scene": "agent",
+        "dedupe_key": "6a6327b7a304bbb0b452cf29:6a842ad3ae00b4541f48383d:afterEdit:b5adc915",
+        "client_type": "ide",
+        "tool_id": "icube:applyChatSnapshotPatch"
+      }
+    }
+  }
+}
