@@ -1,0 +1,38 @@
+fla/utils/_device.py
+  s_bd304e5afb36ff::t_d96142f7ebbc75 82,90
+  h_adf730b7d1ac47 89
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "2550cc5290052ab7df08e998797a83782c9a00e6",
+  "prompts": {},
+  "humans": {
+    "h_adf730b7d1ac47": {
+      "author": "OsirisDuan <hw7osiris@outlook.com>"
+    }
+  },
+  "sessions": {
+    "s_bd304e5afb36ff": {
+      "agent_id": {
+        "tool": "trae",
+        "id": "6a857636ae00b4541f4839f8",
+        "model": "glm-5.2"
+      },
+      "human_author": "OsirisDuan <hw7osiris@outlook.com>",
+      "custom_attributes": {
+        "tool_type": "builtin",
+        "external_session_id": "6a857636ae00b4541f4839f8",
+        "tool_id": "icube:applyChatSnapshotPatch",
+        "operation_id": "6a8576a6ae00b4541f483a20",
+        "client_type": "ide",
+        "dedupe_key": "6a857636ae00b4541f4839f8:6a8576a6ae00b4541f483a20:afterEdit:6b23daf3",
+        "tool_use_id": "6a8576a6ae00b4541f483a20",
+        "session_id": "6a857636ae00b4541f4839f8",
+        "source_scene": "agent",
+        "runtime_client": "trae-tob-git-ai",
+        "edit_kind": "file_edit"
+      }
+    }
+  }
+}
