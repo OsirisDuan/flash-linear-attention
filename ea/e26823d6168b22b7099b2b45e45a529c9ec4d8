@@ -1,0 +1,41 @@
+fla/ops/utils/backends/triton_ascend/solve_tril.py
+  s_7249b54d12cbe3::t_20d7a0a107c5c0 389-392,398-400
+  s_7249b54d12cbe3::t_7348b3aadb7417 29,36-38,45-61,63-64,66-73,75-83
+  s_7249b54d12cbe3::t_beaff2c9323a4a 163,170-172,179-192,194-199,201-212,214-218,220-222,224-241,243-259,261-277,279-295,298-309,311-314,316-320,322-325,327-347
+  s_7249b54d12cbe3::t_5737ebd9972abc 89,96-98,105-158
+  s_7249b54d12cbe3::t_6ef9e81ba598af 15,21-25,62,65,74,193,200,213,219,223,242,260,278,296-297,310,315,321,326
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "eae26823d6168b22b7099b2b45e45a529c9ec4d8",
+  "prompts": {},
+  "humans": {
+    "h_adf730b7d1ac47": {
+      "author": "OsirisDuan <hw7osiris@outlook.com>"
+    }
+  },
+  "sessions": {
+    "s_7249b54d12cbe3": {
+      "agent_id": {
+        "tool": "trae",
+        "id": "6a846191ae00b4541f483962",
+        "model": "glm-5.2"
+      },
+      "human_author": "OsirisDuan <hw7osiris@outlook.com>",
+      "custom_attributes": {
+        "operation_id": "6a8463c9ae00b4541f4839a6",
+        "source_scene": "agent",
+        "tool_type": "builtin",
+        "runtime_client": "trae-tob-git-ai",
+        "session_id": "6a846191ae00b4541f483962",
+        "client_type": "ide",
+        "tool_use_id": "6a8463c9ae00b4541f4839a6",
+        "dedupe_key": "6a846191ae00b4541f483962:6a8463c9ae00b4541f4839a6:afterEdit:6685eed3",
+        "edit_kind": "file_edit",
+        "tool_id": "icube:applyChatSnapshotPatch",
+        "external_session_id": "6a846191ae00b4541f483962"
+      }
+    }
+  }
+}
