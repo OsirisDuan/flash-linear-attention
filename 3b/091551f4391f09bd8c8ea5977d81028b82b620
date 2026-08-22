@@ -1,0 +1,47 @@
+fla/ops/gated_delta_rule/backends/triton_ascend/fused_recurrent.py
+  s_68745dc3dce971::t_8138f4996d245b 279
+  s_68745dc3dce971::t_900fe0d89a4461 89-90
+  s_68745dc3dce971::t_491a55ad42a8ba 142
+  s_68745dc3dce971::t_621d8e18a462d1 159-165
+  s_68745dc3dce971::t_90bfd8f8edbdda 120
+  s_68745dc3dce971::t_c8910fb8496b9a 76
+  s_68745dc3dce971::t_cbae15c91e7c68 184-185
+  s_68745dc3dce971::t_4b4bd9eed5940d 116-117
+  s_68745dc3dce971::t_1a8979d3f8c81b 44
+  s_68745dc3dce971::t_8e394bca2b1e69 209
+  s_68745dc3dce971::t_6be91d4fd1e4c6 203,211
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.2",
+  "base_commit_sha": "3b091551f4391f09bd8c8ea5977d81028b82b620",
+  "prompts": {},
+  "humans": {
+    "h_adf730b7d1ac47": {
+      "author": "OsirisDuan <hw7osiris@outlook.com>"
+    }
+  },
+  "sessions": {
+    "s_68745dc3dce971": {
+      "agent_id": {
+        "tool": "trae",
+        "id": "6a882165555ecb6e896e7d67",
+        "model": "glm-5.3"
+      },
+      "human_author": "OsirisDuan <hw7osiris@outlook.com>",
+      "custom_attributes": {
+        "edit_kind": "file_edit",
+        "source_scene": "agent",
+        "external_session_id": "6a882165555ecb6e896e7d67",
+        "tool_type": "builtin",
+        "client_type": "ide",
+        "session_id": "6a882165555ecb6e896e7d67",
+        "tool_id": "icube:applyChatSnapshotPatch",
+        "tool_use_id": "6a8958a0555ecb6e896e7e8d",
+        "operation_id": "6a8958a0555ecb6e896e7e8d",
+        "dedupe_key": "6a882165555ecb6e896e7d67:6a8958a0555ecb6e896e7e8d:afterEdit:6ca9bb88",
+        "runtime_client": "trae-tob-git-ai"
+      }
+    }
+  }
+}
